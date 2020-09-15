@@ -1,6 +1,16 @@
 # 更新说明
 
-#### 2020.09.02
+#### 依赖使用说明 版本1.0.0
+- gradle安装说明
+```java
+implementation 'com.github.chenzhibini:common_module:1.0.0'
+```
+- 初始化,在application中添加
+```java
+CommonModule.init(this);
+```
+
+#### 微信、支付宝工具使用方法
 
 - 添加支持文本展开/收起的自定义控件
 用法:
