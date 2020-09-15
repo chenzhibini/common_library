@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--	<string name="app_name">TMB GLOBAL</string>-->
+	<string name="sys_apply_permission">In order to properly upgrade APP, click the Settings button, allow the installation of applications from unknown sources, this function only for %1$s version upgrade</string>
+	<string name="sys_ensure">determine</string>
+	<string name="sys_cancel">cancel</string>
+	<string name="sys_toast">Tips</string>
+	<string name="sys_version_title">Detects a new version</string>
+	<string name="sys_version_title2">Software version updates</string>
+	<string name="sys_update">update immediately</string>
+	<string name="sys_caveat">caveat</string>
+	<string name="sys_device">token expired or expired, please login again!</string>
+	<string name="sys_updatepwd">Password changed successfully, please log in again!</string>
+	<string name="sys_permission_fail">Authorization failed!</string>
+	<string name="sys_permission_open">Whether access to system settings permission to open?</string>
+	<string name="net_exception">Abnormal network connection, please check your internet connection and try again later!</string>
+	<string name="null_exception">Null pointer exception</string>
+	<string name="ssl_exception">Certificate validation failure</string>
+	<string name="type_exception">Casting errors</string>
+	<string name="json_exception">Parse error</string>
+	<string name="no_exception">unknown mistake</string>
+	<string name="sys_out_login">Press again to really quit, oh ~</string>
+	<string name="adapter_load_more">Loading More ...</string>
+	<string name="adapter_load_fail">Failed to load!</string>
+	<string name="adapter_load_no_data">No more data!</string>
+	<string name="loadding">loading...</string>
+	<string name="dialog_password_title">请输入交易密码</string>
+	<string name="dialog_password_tip">请输入交易密码，以确认交易</string>
+	<string name="download">下载</string>
+
+
+	<!--项目底部图标-->
+	<string name="tab_1">Index</string>
+	<string name="tab_2">CapitalPool</string>
+	<string name="tab_3">Develop</string>
+	<string name="tab_4">Mine</string>
+
+	<string name="sys_language_choice">ChooseLanguage</string>
+	<string name="sys_language1">中文</string>
+	<string name="sys_language2">English</string>
+	<string name="login_phone">Phone</string>
+	<string name="login_phone_hint">Please enter phone number</string>
+	<string name="login_pwd">LoginPassword</string>
+	<string name="trans_pwd">TransPassword</string>
+	<string name="trans_sure_pwd">ConfirmTransPassword</string>
+	<string name="login_pwd_hint">ConfirmLoginPassword</string>
+	<string name="login_regist">Regist</string>
+	<string name="login_forgetpwd">ForgetPassword?</string>
+	<string name="login_login">Login</string>
+	<string name="regist_title">Regist</string>
+	<string name="forget_pwd_title">ForgetPassword</string>
+	<string name="update_loginpwd_title">UpdateLoginPassword</string>
+	<string name="update_tradpwd_title">UpdateTransPassword</string>
+	<string name="forget_sure">SureUpdate</string>
+	<string name="regist_nick">UserName</string>
+	<string name="regist_area_code">Please select area code</string>
+	<string name="regist_nick_hint">please enter user name</string>
+	<string name="regist_re_pwd">SureLoginPassword</string>
+	<string name="regist_re_pwd_hint">Please enter the login password again</string>
+	<string name="regist_trad_pwd_hint">Please enter transaction password</string>
+	<string name="regist_re_trad_pwd_hint">Please enter the transaction password again</string>
+	<string name="regist_code">VerificationCode</string>
+	<string name="regist_code_hint">Please enter verification code</string>
+	<string name="regist_invite">InviteCode</string>
+	<string name="regist_invite_hint">Please enter the invitation code (required)</string>
+	<string name="account_is">Already have an account? Go to login >></string>
+	<string name="regist_send">GetCode</string>
+	<string name="toast_login_pwd">Inconsistent login passwords</string>
+	<string name="toast_trad_pwd">Inconsistent transaction passwords</string>
+    <string name="toast_open">In development....</string>
+    <string name="save_success">SaveSuccess</string>
+	<string name="copy_success">CopySuccess</string>
+	<string name="copy_fail">CopyFail</string>
+</resources>

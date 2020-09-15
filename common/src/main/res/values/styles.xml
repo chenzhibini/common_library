@@ -1,0 +1,67 @@
+<resources>
+
+    <!--朋友圈图片全屏样式-->
+    <style name="Pic_Dialog">
+        <!-- 边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 背景 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 模糊 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">1</item>
+        <!-- 动画 -->
+        <item name="android:windowAnimationStyle">@style/ShowImageDialogAnimation</item>
+    </style>
+    <style name="ShowImageDialogAnimation" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/scale_in</item>
+        <item name="android:windowExitAnimation">@anim/scale_out</item>
+    </style>
+    <!-- 自定义diydialog样式 -->
+    <style name="picDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@drawable/bg_white_gray_border</item>
+        <!-- 背景 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 是否为半透明 -->
+    </style>
+
+    <!--TextView风格-->
+    <style name="textViewStyle">
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <!-- 自定义密码框/验证码输入框 -->
+    <declare-styleable name="input_message_View">
+        <!-- 密码的个数 -->
+        <attr name="itemNumber" format="integer"/>
+        <!-- 是否是密码模式 -->
+        <attr name="isPassword" format="boolean"/>
+        <!-- 未选中的边框颜色-->
+        <attr name="unSelectStrokeColor" format="color"/>
+        <!-- 选中的边框颜色-->
+        <attr name="selectStrokeColor" format="color"/>
+        <!-- 文字的颜色-->
+        <attr name="text_Color" format="color"/>
+        <!--item的背景色-->
+        <attr name="itemBgColor" format="color"/>
+        <!--是否显示圆点-->
+        <attr name="isOval" format="boolean"/>
+
+    </declare-styleable>
+
+</resources>

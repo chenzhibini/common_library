@@ -1,0 +1,64 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            //是否开启log打印
+            buildConfigField 'boolean', 'ENABLE_LOG', 'false'
+        }
+        debug {
+            //是否开启log打印
+            buildConfigField 'boolean', 'ENABLE_LOG', 'true'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation rootProject.ext.dependencies["appcompat-v7"]
+    testImplementation rootProject.ext.dependencies["junit"]
+    // 图片视频选择
+    implementation rootProject.ext.dependencies["rxgalleryfinal"]
+    // gson
+    implementation rootProject.ext.dependencies["gson"]
+    // Glide
+    implementation rootProject.ext.dependencies["glide"]
+    //省市区三级联动
+    implementation rootProject.ext.dependencies["CityPickerView"]
+    //时间
+    implementation rootProject.ext.dependencies["PickerView"]
+    // 二维码
+    implementation rootProject.ext.dependencies["ZxingLibrary"]
+    //PhotoView 查看大图
+    implementation rootProject.ext.dependencies["PhotoView"]
+    // butterKnife
+    implementation rootProject.ext.dependencies["butterknife"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    //EventBus
+    implementation rootProject.ext.dependencies["EventBus"]
+    //拼音
+    implementation rootProject.ext.dependencies["Pinyin"]
+    // RecyclerView 适配器
+    implementation rootProject.ext.dependencies["BaseRecyclerViewAdapterHelper"]
+
+}

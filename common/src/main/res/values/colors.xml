@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="bg_color">#F2F2F2</color>
+    <color name="black">#333333</color>
+    <color name="gray_80">#808080</color>
+    <color name="text_gray">#B3B3B3</color>
+    <color name="main_color">#19140B</color>
+    <color name="main_line">#C1A969</color>
+    <color name="bg_text_press">#FFE4E4E4</color>
+
+</resources>

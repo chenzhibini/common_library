@@ -1,0 +1,74 @@
+<resources>
+<!--    <string name="app_name">BaseDemo</string>-->
+    <!--系统-->
+    <string name="sys_apply_permission">为了正常升级APP，请点击设置按钮，允许安装未知来源应用，本功能只限用于%1$s版本升级</string>
+    <string name="sys_ensure">确定</string>
+    <string name="sys_cancel">取消</string>
+    <string name="sys_toast">温馨提示</string>
+    <string name="sys_version_title">检测到新版本</string>
+    <string name="sys_version_title2">软件版本更新</string>
+    <string name="sys_update">立即更新</string>
+    <string name="sys_caveat">警告</string>
+    <string name="sys_device">token过期或已失效，请重新登录!</string>
+    <string name="sys_updatepwd">密码修改成功，请重新登录!</string>
+    <string name="sys_permission_fail">授权失败！</string>
+    <string name="sys_permission_open">是否前往系统设置开启权限？</string>
+    <string name="net_exception">网络连接异常，请检查您的网络状态，稍后重试！</string>
+    <string name="null_exception">空指针异常</string>
+    <string name="ssl_exception">证书验证失效</string>
+    <string name="type_exception">类型转换错误</string>
+    <string name="json_exception">解析错误</string>
+    <string name="no_exception">未知错误</string>
+    <string name="sys_out_login">再按一次真的会退出了哦~</string>
+    <string name="adapter_load_more">正在加载更多...</string>
+    <string name="adapter_load_fail">加载失败！</string>
+    <string name="adapter_load_no_data">没有更多数据！</string>
+    <string name="loadding">loading...</string>
+    <string name="dialog_password_title">请输入交易密码</string>
+    <string name="dialog_password_tip">请输入交易密码，以确认交易</string>
+    <string name="download">下载</string>
+    <!--项目底部图标-->
+    <string name="tab_1">首页</string>
+    <string name="tab_2">资金池</string>
+    <string name="tab_3">养成</string>
+    <string name="tab_4">我的</string>
+
+    <string name="sys_language_choice">选择语言</string>
+    <string name="sys_language1">中文</string>
+    <string name="sys_language2">English</string>
+    <string name="login_phone">手机号</string>
+    <string name="login_phone_hint">请输入手机号</string>
+    <string name="login_pwd">登录密码</string>
+    <string name="trans_pwd">交易密码</string>
+    <string name="trans_sure_pwd">确认交易密码</string>
+    <string name="login_pwd_hint">请输入登录密码</string>
+    <string name="login_regist">立即注册</string>
+    <string name="login_forgetpwd">忘记密码?</string>
+    <string name="login_login">登录</string>
+    <string name="regist_title">注册</string>
+    <string name="forget_pwd_title">忘记密码</string>
+    <string name="update_loginpwd_title">修改登录密码</string>
+    <string name="update_tradpwd_title">修改交易密码</string>
+    <string name="forget_sure">确认修改</string>
+    <string name="regist_nick">用户名</string>
+    <string name="regist_area_code">请选择区号</string>
+    <string name="regist_nick_hint">请输入用户名</string>
+    <string name="regist_re_pwd">确认登录密码</string>
+    <string name="regist_re_pwd_hint">请再次输入登录密码</string>
+    <string name="regist_trad_pwd_hint">请输入交易密码</string>
+    <string name="regist_re_trad_pwd_hint">请再次输入交易密码</string>
+    <string name="regist_code">验证码</string>
+    <string name="regist_code_hint">请输入验证码</string>
+    <string name="regist_invite">邀请码</string>
+    <string name="regist_invite_hint">请输入邀请码(必填)</string>
+    <string name="account_is">已有账号？去登录>></string>
+    <string name="regist_send">获取验证码</string>
+    <string name="toast_login_pwd">登录密码不一致</string>
+    <string name="toast_trad_pwd">交易密码不一致</string>
+    <string name="toast_open">开发中....</string>
+    <string name="save_success">保存成功</string>
+    <string name="copy_success">复制成功</string>
+    <string name="copy_fail">复制失败</string>
+
+
+</resources>

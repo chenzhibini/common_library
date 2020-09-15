@@ -1,0 +1,19 @@
+<resources>
+    <!--    文字大小-->
+    <dimen name="sp_14">14sp</dimen>
+    <dimen name="sp_16">16sp</dimen>
+    <dimen name="sp_18">18sp</dimen>
+
+    <!--    边距-->
+    <dimen name="margin_5">5dip</dimen>
+    <dimen name="margin_10">10dip</dimen>
+    <dimen name="margin_15">15dip</dimen>
+    <dimen name="margin_20">20dip</dimen>
+
+    <!--    高度-->
+    <dimen name="item_height_1">1dip</dimen>
+    <dimen name="item_height_44">44dip</dimen>
+    <dimen name="item_height_50">50dip</dimen>
+
+
+</resources>

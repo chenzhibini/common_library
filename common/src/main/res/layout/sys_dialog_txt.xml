@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/from_dialog_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:background="@mipmap/ic_system_notice"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_dialog_content"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:gravity="center"
+            android:maxLines="16"
+            android:minHeight="80dp"
+            android:layout_marginTop="30dp"
+            android:scrollbars="vertical"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/from_dialog_frozentip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/ic_frozen"
+        android:visibility="gone"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_dialog_frozen_content"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:gravity="center"
+            android:maxLines="16"
+            android:minHeight="80dp"
+            android:layout_marginTop="30dp"
+            android:scrollbars="vertical"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+</RelativeLayout>

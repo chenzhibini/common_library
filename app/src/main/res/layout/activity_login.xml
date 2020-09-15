@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            style="@style/imageViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="197dp"
+            android:background="@mipmap/login_logo" />
+        <LinearLayout
+            android:id="@+id/ll_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="15dp">
+            <TextView
+                android:id="@+id/tv_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sys_language_choice"
+                android:textSize="14sp"
+                android:textColor="@color/main_line"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/down_main"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <!--账号-->
+    <LinearLayout
+        style="@style/linearLayoutStyle"
+        android:layout_marginTop="66dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
+        <ImageView
+            style="@style/imageViewStyle"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="12dp"
+            android:src="@mipmap/account"/>
+        <EditText
+            android:id="@+id/et_account"
+            style="@style/editViewStyle"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:hint="@string/login_phone_hint" />
+    </LinearLayout>
+    <!--密码-->
+    <LinearLayout
+        style="@style/linearLayoutStyle"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
+        <ImageView
+            style="@style/imageViewStyle"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="10dp"
+            android:src="@mipmap/password"/>
+        <EditText
+            android:id="@+id/et_pwd"
+            style="@style/editViewStyle"
+            android:inputType="textPassword"
+            android:hint="@string/login_pwd_hint" />
+    </LinearLayout>
+    <!--注册、忘记密码-->
+    <com.allen.library.SuperTextView
+        android:id="@+id/sv_regist_forget"
+        android:layout_gravity="right"
+        android:layout_marginTop="15dp"
+        android:layout_width="180dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="15dp"
+        app:sBackgroundDrawableRes="@color/transparent"
+        app:sDividerLineType="none"
+        app:sRightTextString="@string/login_forgetpwd"
+        app:sRightTextColor="@color/main_line"
+        app:sRightTextSize="14sp"
+        app:sLeftTextString="@string/login_regist"
+        app:sLeftTextColor="@color/main_line"
+        app:sLeftTextSize="14sp"
+        app:sUseRipple="true" />
+    <!--登录-->
+    <Button
+        android:id="@+id/bt_login"
+        style="@style/buttonStyle"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="63dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:text="@string/login_login" />
+
+</LinearLayout>

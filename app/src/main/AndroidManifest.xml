@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.hdyg.testcommon">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+
+    <!-- 在sdcard中创建/删除文件的权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.MOUNT_FORMAT_FILESYSTEMS" />
+    <!-- 添加拍照、相册权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!--允许安装位置来源应用-->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <!--图片选择框架权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- 二维码、扫描相关权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--拨打电话权限-->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!--获取手机标示-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <!--高德权限-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+
+
+    <application
+        android:name="com.hdyg.testcommon.app.MvpApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        tools:replace="android:icon,android:theme,android:allowBackup">
+                <!-- Android7.0+用于访问外部文件 -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/uodate_file_path" />
+        </provider>
+
+        <!--拍摄、选择照片 所需声明-->
+        <activity
+            android:name="cn.finalteam.rxgalleryfinal.ui.activity.MediaActivity"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+        <activity android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait" />
+        <!-- ============= -->
+        <!--          项目           -->
+        <activity android:name=".mvp.view.activity.WelcomeAty"
+            android:theme="@style/AppTheme.Launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data
+                    android:scheme="app"
+                    android:host="index"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".mvp.view.activity.WebActivity"
+            android:hardwareAccelerated="true"/>
+        <activity android:name="com.hdyg.testcommon.util.versionUtil.AndroidOPermissionActivity" />
+        <activity android:name=".mvp.view.activity.LoginActivity" >
+            <intent-filter >
+                <action android:name="com.hdyg.android.login"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".mvp.view.activity.MainActivity" />
+        <activity android:name=".mvp.view.activity.RegistForGetPwdActivity" />
+        <activity android:name=".mvp.view.activity.TreeAdapterActivity" />
+        <activity android:name=".mvp.view.activity.ExpandableActivity" />
+    </application>
+
+</manifest>

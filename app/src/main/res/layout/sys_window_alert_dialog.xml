@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_shape_gray_k_10"
+        android:gravity="center_horizontal"
+        android:minHeight="120dp"
+        android:orientation="vertical"
+        android:padding="0.5dp">
+
+        <TextView
+            android:id="@+id/dialogTitle"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/sys_toast"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/dialogContent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:maxHeight="180dp"
+            android:minHeight="150dp"
+            android:scrollbars="vertical"
+            android:text=""
+            android:textColor="@color/main_line"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/linearlayout_aboveline_bottom_round"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/dialogCancel"
+                android:textColor="@color/white"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="1dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/sys_cancel" />
+
+            <View
+                android:id="@+id/dialogCutOfRule"
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/main_line" />
+
+            <TextView
+                android:id="@+id/dialogCertain"
+                android:textColor="@color/white"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="1dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/sys_ensure" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

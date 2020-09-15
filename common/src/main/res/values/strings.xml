@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Common</string>
+    <string name="loadding">loading...</string>
+    <string name="save_success">保存成功</string>
+    <string name="copy_success">复制成功</string>
+    <string name="copy_fail">复制失败</string>
+    <string name="net_exception">网络连接异常，请检查您的网络状态，稍后重试！</string>
+    <string name="null_exception">空指针异常</string>
+    <string name="ssl_exception">证书验证失效</string>
+    <string name="type_exception">类型转换错误</string>
+    <string name="json_exception">解析错误</string>
+    <string name="no_exception">未知错误</string>
+    <string name="sys_caveat">警告</string>
+    <string name="sys_device">token过期或已失效，请重新登录!</string>
+    <string name="download">下载</string>
+    <string name="sys_cancel">取消</string>
+    <string name="sys_ensure">确定</string>
+    <string name="adapter_load_more">正在加载更多...</string>
+    <string name="adapter_load_fail">加载失败！</string>
+    <string name="adapter_load_no_data">没有更多数据！</string>
+    <string name="sys_proto">请你务必谨慎阅读、充分理解\'服务和隐私条款\',包括但不限于：为了向你提供即时通讯，内容分享等服务，我们需要收集你的设备信息，操作日志等个人信息。你可阅读《用户服务协议》及《隐私政策》了解详细信息。如你同意，请点击同意“确定”接受我们的服务。</string>
+    <string name="sys_user_proto">《用户服务协议》</string>
+    <string name="sys_yinsi_proto">《隐私政策》</string>
+</resources>

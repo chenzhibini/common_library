@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bg_color"
+    android:orientation="vertical">
+
+    <include layout="@layout/top_bar_layout" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!--昵称-->
+            <LinearLayout
+                android:id="@+id/ll_nick"
+                style="@style/linearLayoutStyle"
+                android:background="@drawable/btn_shape_maincolor_5"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    style="@style/textViewStyle"
+                    android:layout_marginStart="14dp"
+                    android:text="@string/regist_nick"/>
+
+                <EditText
+                    android:id="@+id/et_nick"
+                    style="@style/editViewStyle"
+                    android:hint="@string/regist_nick_hint" />
+            </LinearLayout>
+            <!--手机号-->
+            <LinearLayout
+                android:id="@+id/ll_phone"
+                style="@style/linearLayoutStyle"
+                android:background="@drawable/btn_shape_maincolor_5"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    style="@style/textViewStyle"
+                    android:layout_marginStart="14dp"
+                    android:text="@string/login_phone"/>
+
+                <com.allen.library.SuperTextView
+                    android:id="@+id/sv_quhao"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    app:sBackgroundDrawableRes="@color/transparent"
+                    app:sCenterTextString="+86"
+                    app:sCenterTextColor="@color/white"
+                    app:sCenterTvDrawableRight="@mipmap/down_gray"
+                    app:sDividerLineType="none" />
+
+                <EditText
+                    android:id="@+id/et_account"
+                    style="@style/editViewStyle"
+                    android:hint="@string/login_phone_hint"
+                    android:inputType="phone"
+                    android:maxLength="11" />
+            </LinearLayout>
+            <!--登录密码-->
+            <LinearLayout
+                android:id="@+id/ll_login_pwd"
+                style="@style/linearLayoutStyle"
+                android:background="@drawable/btn_shape_maincolor_5"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    style="@style/textViewStyle"
+                    android:layout_marginStart="14dp"
+                    android:text="@string/login_pwd"/>
+
+                <EditText
+                    android:id="@+id/et_pwd"
+                    style="@style/editViewStyle"
+                    android:hint="@string/login_pwd_hint"
+                    android:inputType="textPassword" />
+            </LinearLayout>
+            <!--再次输入登录密码-->
+            <LinearLayout
+                android:id="@+id/ll_re_login_pwd"
+                style="@style/linearLayoutStyle"
+                android:background="@drawable/btn_shape_maincolor_5"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    style="@style/textViewStyle"
+                    android:layout_marginStart="14dp"
+                    android:text="@string/regist_re_pwd"/>
+
+                <EditText
+                    android:id="@+id/et_re_pwd"
+                    style="@style/editViewStyle"
+                    android:hint="@string/regist_re_pwd_hint"
+                    android:inputType="textPassword" />
+            </LinearLayout>
+            <!--交易密码-->
+            <LinearLayout
+                android:id="@+id/ll_trad_pwd"
+                style="@style/linearLayoutStyle"
+                android:background="@drawable/btn_shape_maincolor_5"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    style="@style/textViewStyle"
+                    android:layout_marginStart="14dp"
+                    android:text="@string/trans_pwd"/>
+
+                <EditText
+                    android:id="@+id/et_trad_pwd"
+                    style="@style/editViewStyle"
+                    android:hint="@string/regist_trad_pwd_hint"
+                    android:inputType="textPassword" />
+            </LinearLayout>
+            <!--再次输入交易密码-->
+            <LinearLayout
+                android:id="@+id/ll_re_trad_pwd"
+                style="@style/linearLayoutStyle"
+                android:background="@drawable/btn_shape_maincolor_5"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    style="@style/textViewStyle"
+                    android:layout_marginStart="14dp"
+                    android:text="@string/trans_sure_pwd"/>
+
+                <EditText
+                    android:id="@+id/et_re_trad_pwd"
+                    style="@style/editViewStyle"
+                    android:hint="@string/regist_re_trad_pwd_hint"
+                    android:inputType="textPassword" />
+            </LinearLayout>
+            <!--请输入邀请码-->
+            <LinearLayout
+                android:id="@+id/ll_invite"
+                style="@style/linearLayoutStyle"
+                android:background="@drawable/btn_shape_maincolor_5"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    style="@style/textViewStyle"
+                    android:layout_marginStart="14dp"
+                    android:text="@string/regist_invite"/>
+
+                <EditText
+                    android:id="@+id/et_invite"
+                    style="@style/editViewStyle"
+                    android:hint="@string/regist_invite_hint" />
+            </LinearLayout>
+            <!--请输入验证码-->
+            <LinearLayout
+                style="@style/linearLayoutStyle"
+                android:background="@drawable/btn_shape_maincolor_5"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    style="@style/textViewStyle"
+                    android:layout_marginStart="14dp"
+                    android:text="@string/regist_code"/>
+
+                <EditText
+                    android:id="@+id/et_code"
+                    style="@style/editViewStyle"
+                    android:hint="@string/regist_code_hint" />
+
+                <TextView
+                    android:id="@+id/tv_send"
+                    style="@style/textViewStyle"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:text="@string/regist_send"
+                    android:textColor="@color/main_line" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_login"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center"
+                style="@style/textViewStyle"
+                android:textColor="@color/main_line"
+                android:textSize="12sp"
+                android:text="@string/account_is"/>
+
+            <!--登录-->
+            <Button
+                android:id="@+id/bt_sure"
+                style="@style/buttonStyle"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="80dp"
+                android:layout_marginRight="80dp"
+                android:layout_marginTop="45dp"
+                android:layout_marginBottom="30dp"
+                android:text="登录" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

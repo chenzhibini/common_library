@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ll_top_bar_bg"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/margin_20"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height_44">
+
+        <!--返回-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/ll_top_left"
+                android:onClick="backClick"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:minWidth="40dp">
+
+                <ImageView
+                    android:id="@+id/iv_top_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_15"
+                    android:src="@mipmap/back" />
+
+                <TextView
+                    android:id="@+id/tv_top_left"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_10"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/sp_14"
+                    android:text=""/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--标题-->
+        <com.hdyg.common.widget.MarqueeTextView
+            android:id="@+id/tvTopTitle"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:maxWidth="200dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_18" />
+
+        <!--右边功能键-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="right">
+
+            <LinearLayout
+                android:id="@+id/ll_top_right"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|right"
+                android:minWidth="@dimen/item_height_50"
+                android:paddingRight="@dimen/margin_20">
+
+                <TextView
+                    android:id="@+id/tv_top_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/sp_16" />
+
+                <ImageView
+                    android:id="@+id/iv_top_right"
+                    android:layout_marginStart="@dimen/margin_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
