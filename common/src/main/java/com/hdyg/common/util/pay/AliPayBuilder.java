@@ -1,4 +1,4 @@
-package com.hdyg.common.util.pay;//package com.hdyg.basedemo.util.pay;
+//package com.hdyg.common.util.pay;
 //
 //import android.app.Activity;
 //import android.content.Context;
@@ -6,8 +6,8 @@ package com.hdyg.common.util.pay;//package com.hdyg.basedemo.util.pay;
 //import android.os.Message;
 //import android.text.TextUtils;
 //import com.alipay.sdk.app.PayTask;
-//import com.hdyg.basedemo.entry.PayResult;
-//import com.hdyg.basedemo.util.ToastUtil;
+//import com.hdyg.common.bean.PayResult;
+//import com.hdyg.common.util.ToastUtil;
 //import java.lang.ref.WeakReference;
 //import java.util.Map;
 //

@@ -24,6 +24,8 @@ import android.widget.TextView;
 import com.hdyg.common.R;
 import com.hdyg.common.util.MD5.Md5Encrypt;
 import com.hdyg.common.util.MD5.ParameterUtils;
+
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -32,6 +34,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.List;
@@ -637,6 +643,48 @@ public class StringUtil {
             return true;
         else
             return false;
+    }
+
+    /**
+     * 网络资源图片转字节
+     * @param url 网络资源
+     * @return byte
+     */
+    public static byte[] getHtmlByteArray(final String url) {
+        URL htmlUrl = null;
+        InputStream inStream = null;
+        try {
+            htmlUrl = new URL(url);
+            URLConnection connection = htmlUrl.openConnection();
+            HttpURLConnection httpConnection = (HttpURLConnection)connection;
+            int responseCode = httpConnection.getResponseCode();
+            if(responseCode == HttpURLConnection.HTTP_OK){
+                inStream = httpConnection.getInputStream();
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        byte[] data = inputStreamToByte(inStream);
+
+        return data;
+    }
+    public static byte[] inputStreamToByte(InputStream is) {
+        try{
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            int ch;
+            while ((ch = is.read()) != -1) {
+                baos.write(ch);
+            }
+            byte imgdata[] = baos.toByteArray();
+            baos.close();
+            return imgdata;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
 
