@@ -1,13 +1,16 @@
 package com.hdyg.testcommon.mvp.view.activity;
 
 import android.content.Intent;
+
 import androidx.annotation.Nullable;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.allen.library.SuperTextView;
 import com.hdyg.testcommon.BuildConfig;
 import com.hdyg.testcommon.R;
@@ -23,6 +26,7 @@ import com.hdyg.common.util.LangUtil.MultiLanguageType;
 import com.hdyg.common.util.LangUtil.MultiLanguageUtil;
 import com.hdyg.common.util.PopWindowUtil;
 import com.hdyg.common.util.SPUtils;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import cn.com.superLei.aoparms.annotation.SingleClick;
@@ -69,7 +73,7 @@ public class LoginActivity extends BaseActivity<PLogin> implements CLogin.IVLogi
 
     }
 
-    @OnClick({R.id.bt_login,R.id.ll_language})
+    @OnClick({R.id.bt_login, R.id.ll_language, R.id.tv_time})
     @SingleClick(R.id.bt_login)
     public void onClickView(View view) {
         switch (view.getId()) {
@@ -96,9 +100,12 @@ public class LoginActivity extends BaseActivity<PLogin> implements CLogin.IVLogi
 //                        .build().show();
 //                TakePhotoUtil.getInstance().selectPhotoCropSingle(mContext,obj -> {});
 //            UIHelper.showRegistForgetPwd(mContext,RegistForGetPwdActivity.REGIST_CODE,REQUEST_CODE);
-                startActivity(ExpandableActivity.class);
+//                startActivity(ExpandableActivity.class);
 //            UIHelper.showMain(mContext);
 //                TakePhotoUtil.getInstance().selectPhotoMult(mContext,list -> {});
+                break;
+            case R.id.tv_time:
+                startActivity(ProcityTestActivity.class);
                 break;
         }
     }

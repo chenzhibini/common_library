@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical">
+    <include layout="@layout/top_bar_layout"/>
+    <TextView
+        android:id="@+id/tv_time"
+        style="@style/textViewStyle.White"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height_50"
+        android:text="时间选择器"/>
+    <TextView
+        android:id="@+id/tv_pro"
+        style="@style/textViewStyle.White"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height_50"
+        android:text="省市区选择器"/>
+    <TextView
+        android:id="@+id/tv_cus"
+        style="@style/textViewStyle.White"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height_50"
+        android:text="自定义数据选择器（数据不联动）"/>
+</LinearLayout>

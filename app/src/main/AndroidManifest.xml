@@ -100,6 +100,7 @@
         <activity android:name=".mvp.view.activity.RegistForGetPwdActivity" />
         <activity android:name=".mvp.view.activity.TreeAdapterActivity" />
         <activity android:name=".mvp.view.activity.ExpandableActivity" />
+        <activity android:name=".mvp.view.activity.ProcityTestActivity" />
     </application>
 
 </manifest>

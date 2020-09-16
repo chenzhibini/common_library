@@ -39,8 +39,6 @@
 
         </LinearLayout>
     </RelativeLayout>
-
-
     <!--账号-->
     <LinearLayout
         style="@style/linearLayoutStyle"
@@ -76,6 +74,13 @@
             android:inputType="textPassword"
             android:hint="@string/login_pwd_hint" />
     </LinearLayout>
+    <TextView
+        android:id="@+id/tv_time"
+        style="@style/textViewStyle.White"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height_44"
+        android:gravity="center"
+        android:text="时间选择器展示"/>
     <!--注册、忘记密码-->
     <com.allen.library.SuperTextView
         android:id="@+id/sv_regist_forget"

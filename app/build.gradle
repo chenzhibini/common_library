@@ -105,13 +105,13 @@ dependencies {
     // recycleview
     implementation rootProject.ext.dependencies["recyclerview"]
     // 图片视频选择
-    implementation rootProject.ext.dependencies["rxgalleryfinal"]
+//    implementation rootProject.ext.dependencies["rxgalleryfinal"]
     //分包
     implementation rootProject.ext.dependencies["multidex"]
     // 二维码
 //    implementation rootProject.ext.dependencies["ZxingLibrary"]
     // gson
-    implementation rootProject.ext.dependencies["gson"]
+//    implementation rootProject.ext.dependencies["gson"]
     // Bugly异常捕获
     implementation rootProject.ext.dependencies["bugly-crashreport"]
     implementation rootProject.ext.dependencies["bugly-nativecrashreport"]
@@ -120,7 +120,7 @@ dependencies {
     //SmartRefreshLayout
     implementation rootProject.ext.dependencies["SmartRefreshLayout"]
     // RecyclerView 适配器
-    implementation rootProject.ext.dependencies["BaseRecyclerViewAdapterHelper"]
+//    implementation rootProject.ext.dependencies["BaseRecyclerViewAdapterHelper"]
     //滑块验证
     implementation rootProject.ext.dependencies["Captcha"]
     //跑马灯
