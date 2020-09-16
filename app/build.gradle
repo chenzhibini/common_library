@@ -137,8 +137,6 @@ dependencies {
 //    implementation rootProject.ext.dependencies["CityPickerView"]
     //时间
 //    implementation rootProject.ext.dependencies["PickerView"]
-    //banner
-//    implementation project(path: ':banner')
     //gifview
     implementation rootProject.ext.dependencies["GifView"]
     // 圆形 圆角图片
