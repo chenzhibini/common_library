@@ -125,6 +125,12 @@ TakePhotoUtil.getInstance().selectVideoMult(mContext,list -> {
                         LogUtils.d("视频path---->"+list.get(i).getOriginalPath());
                     }
                 });
+// onActivityResult回调中添加
+  @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        SimpleRxGalleryFinal.get().onActivityResult(requestCode, resultCode, data);
+    }
 ```
 #### 使用跳转第三方地图方法
 ```java
