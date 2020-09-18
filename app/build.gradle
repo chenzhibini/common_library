@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
 
-        applicationId ONLINE_APPLICATIONID
+        applicationId "com.hdyg.testcommon"
         buildConfigField "String", "DOMAIN_URL", ONLINE_DOMAIN_URL   // 正式站
         resValue 'string', 'app_name', APP_NAME
 
@@ -21,8 +21,7 @@ android {
         ndk {
             abiFilters "armeabi", "x86"
         }
-        //多渠道打包需要 版本名后面添加一句话，意思就是flavor dimension 它的维度就是该版本号，这样维度就是都是统一的了
-        flavorDimensions "versionCode"
+
     }
     signingConfigs {
         release {
@@ -44,25 +43,6 @@ android {
             signingConfig signingConfigs.release
             //是否开启log打印
             buildConfigField 'boolean', 'ENABLE_LOG', 'true'
-        }
-    }
-
-    // 多渠道打包
-    productFlavors {
-        online {
-            // 线上版
-            applicationId ONLINE_APPLICATIONID
-            buildConfigField 'String', 'DOMAIN_URL', ONLINE_DOMAIN_URL   // 正式站
-            // 注意，这里是添加，在 string.xml 不能有这个字段，会重名！！！
-            resValue 'string', 'app_name', APP_NAME
-
-        }
-        hdyg {
-            // 公司展示版
-            applicationId HDYG_APPLICATIONID
-            buildConfigField 'String', 'DOMAIN_URL', HDYG_DOMAIN_URL   // 测试站
-            // 注意，这里是添加，在 string.xml 不能有这个字段，会重名！！！
-            resValue 'string', 'app_name', "${APP_NAME}展示版"
         }
     }
 
@@ -88,15 +68,7 @@ buildscript {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-//    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
-//        exclude group: 'com.android.support', module: 'support-annotations'
-//    })
-//    implementation rootProject.ext.dependencies["appcompat-v7"]
     implementation rootProject.ext.dependencies["constraint-layout"]
-//    testImplementation rootProject.ext.dependencies["junit"]
-
-    // Glide
-//    implementation rootProject.ext.dependencies["glide"]
     // okhttp
     implementation rootProject.ext.dependencies["okhttp"]
     // butterKnife
@@ -104,14 +76,8 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
     // recycleview
     implementation rootProject.ext.dependencies["recyclerview"]
-    // 图片视频选择
-//    implementation rootProject.ext.dependencies["rxgalleryfinal"]
     //分包
     implementation rootProject.ext.dependencies["multidex"]
-    // 二维码
-//    implementation rootProject.ext.dependencies["ZxingLibrary"]
-    // gson
-//    implementation rootProject.ext.dependencies["gson"]
     // Bugly异常捕获
     implementation rootProject.ext.dependencies["bugly-crashreport"]
     implementation rootProject.ext.dependencies["bugly-nativecrashreport"]
@@ -119,8 +85,6 @@ dependencies {
     implementation rootProject.ext.dependencies["SuperTextView"]
     //SmartRefreshLayout
     implementation rootProject.ext.dependencies["SmartRefreshLayout"]
-    // RecyclerView 适配器
-//    implementation rootProject.ext.dependencies["BaseRecyclerViewAdapterHelper"]
     //滑块验证
     implementation rootProject.ext.dependencies["Captcha"]
     //跑马灯
@@ -129,26 +93,13 @@ dependencies {
     implementation rootProject.ext.dependencies["AndroidView"]
     //design
     implementation rootProject.ext.dependencies["design"]
-    //EventBus
-//    implementation rootProject.ext.dependencies["EventBus"]
-    //PhotoView 查看大图
-//    implementation rootProject.ext.dependencies["PhotoView"]
-    //省市区三级联动
-//    implementation rootProject.ext.dependencies["CityPickerView"]
-    //时间
-//    implementation rootProject.ext.dependencies["PickerView"]
     //gifview
     implementation rootProject.ext.dependencies["GifView"]
     // 圆形 圆角图片
     implementation rootProject.ext.dependencies["RoundImage"]
     //AOP
     implementation rootProject.ext.dependencies["AOP"]
-    //拼音
-//    implementation rootProject.ext.dependencies["Pinyin"]
     //
     implementation project(path: ':common')
-    //高德 定位
-//    implementation 'com.amap.api:location:latest.integration'
-//    implementation 'com.amap.api:search:latest.integration'
 
 }

@@ -282,8 +282,8 @@ public class JDialog {
                     case PROTOCOL:    // 隐私协议弹框
                         llCancel.setVisibility(View.VISIBLE);
                         cutOfLine.setVisibility(View.VISIBLE);
-                        int start1 = WordsUtil.getString(R.string.sys_proto).indexOf(WordsUtil.getString(R.string.sys_user_proto));
-                        int start2 = WordsUtil.getString(R.string.sys_proto).indexOf(WordsUtil.getString(R.string.sys_yinsi_proto));
+                        int start1 = content.toString().indexOf(WordsUtil.getString(R.string.sys_user_proto));
+                        int start2 = content.toString().indexOf(WordsUtil.getString(R.string.sys_yinsi_proto));
                         int[] start = {start1, start2};
                         int[] lenth = {WordsUtil.getString(R.string.sys_user_proto).length(), WordsUtil.getString(R.string.sys_yinsi_proto).length()};
                         String[] tag = {ProtocolClickableSpan.TAG_PROTOCOL_USER, ProtocolClickableSpan.TAG_PROTOCOL_YINSI};

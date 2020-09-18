@@ -22,10 +22,6 @@ import butterknife.BindView;
  */
 public class TreeAdapterActivity extends BaseActivity {
 
-    @BindView(R.id.ll_top_left)
-    LinearLayout llTopLeft;
-    @BindView(R.id.tvTopTitle)
-    TextView tvTopTitle;
     @BindView(R.id.rv_main)
     RecyclerView rvMain;
 
@@ -38,8 +34,7 @@ public class TreeAdapterActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        tvTopTitle.setText("测试三级列表");
-        llTopLeft.setOnClickListener(v -> finish());
+        setTopTitle("测试三级列表");
         rvMain.setLayoutManager(new LinearLayoutManager(mContext));
     }
 

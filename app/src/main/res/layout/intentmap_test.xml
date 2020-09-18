@@ -4,32 +4,36 @@
     android:layout_height="match_parent"
     android:background="@color/bg_color"
     android:orientation="vertical">
-    <include layout="@layout/top_bar_layout"/>
+
+    <include layout="@layout/top_bar_layout" />
+
     <TextView
-        android:id="@+id/tv_time"
+        android:id="@+id/tv_gaode"
         style="@style/textViewStyle.White.PaddingLeftRight_5"
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_height_44"
         android:layout_marginTop="@dimen/margin_10"
         android:background="@drawable/shape_null_white_5"
         android:gravity="center"
-        android:text="时间选择器"/>
+        android:text="跳转高德地图" />
+
     <TextView
-        android:id="@+id/tv_pro"
+        android:id="@+id/tv_tengxun"
         style="@style/textViewStyle.White.PaddingLeftRight_5"
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_height_44"
         android:layout_marginTop="@dimen/margin_10"
         android:background="@drawable/shape_null_white_5"
         android:gravity="center"
-        android:text="省市区选择器"/>
+        android:text="跳转腾讯地图" />
+
     <TextView
-        android:id="@+id/tv_cus"
+        android:id="@+id/tv_baidu"
         style="@style/textViewStyle.White.PaddingLeftRight_5"
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_height_44"
         android:layout_marginTop="@dimen/margin_10"
         android:background="@drawable/shape_null_white_5"
         android:gravity="center"
-        android:text="自定义数据选择器（数据不联动）"/>
+        android:text="跳转百度地图" />
 </LinearLayout>

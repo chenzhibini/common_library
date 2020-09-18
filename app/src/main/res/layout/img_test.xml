@@ -4,68 +4,78 @@
     android:layout_height="match_parent"
     android:background="@color/bg_color"
     android:orientation="vertical">
-
-    <include layout="@layout/top_bar_layout" />
-
+    <include layout="@layout/top_bar_layout"/>
     <TextView
-        android:id="@+id/tv_time"
+        android:id="@+id/tv_img_1"
         style="@style/textViewStyle.White.PaddingLeftRight_5"
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_height_44"
         android:layout_marginTop="@dimen/margin_10"
         android:background="@drawable/shape_null_white_5"
         android:gravity="center"
-        android:text="时间选择器展示" />
-
+        android:text="照片单选裁剪" />
     <TextView
-        android:id="@+id/tv_cus_text"
+        android:id="@+id/tv_img_2"
         style="@style/textViewStyle.White.PaddingLeftRight_5"
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_height_44"
         android:layout_marginTop="@dimen/margin_10"
         android:background="@drawable/shape_null_white_5"
         android:gravity="center"
-        android:text="自定义文本收起/全文" />
-
+        android:text="照片多选" />
     <TextView
-        android:id="@+id/tv_tree"
+        android:id="@+id/tv_img_3"
         style="@style/textViewStyle.White.PaddingLeftRight_5"
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_height_44"
         android:layout_marginTop="@dimen/margin_10"
         android:background="@drawable/shape_null_white_5"
         android:gravity="center"
-        android:text="三级列表" />
-
+        android:text="拍照不裁剪" />
     <TextView
-        android:id="@+id/tv_dialog"
+        android:id="@+id/tv_img_4"
         style="@style/textViewStyle.White.PaddingLeftRight_5"
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_height_44"
         android:layout_marginTop="@dimen/margin_10"
         android:background="@drawable/shape_null_white_5"
         android:gravity="center"
-        android:text="dialog窗口" />
-
+        android:text="拍照并裁剪" />
     <TextView
-        android:id="@+id/tv_img"
+        android:id="@+id/tv_img_5"
         style="@style/textViewStyle.White.PaddingLeftRight_5"
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_height_44"
         android:layout_marginTop="@dimen/margin_10"
         android:background="@drawable/shape_null_white_5"
         android:gravity="center"
-        android:text="照片选择器" />
-
+        android:text="视频单选" />
     <TextView
-        android:id="@+id/tv_map"
+        android:id="@+id/tv_img_6"
         style="@style/textViewStyle.White.PaddingLeftRight_5"
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_height_44"
         android:layout_marginTop="@dimen/margin_10"
         android:background="@drawable/shape_null_white_5"
         android:gravity="center"
-        android:text="跳转第三方地图(高德、百度、腾讯地图)" />
-
+        android:text="视频多选" />
+    <TextView
+        android:id="@+id/tv_img_7"
+        style="@style/textViewStyle.White.PaddingLeftRight_5"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height_44"
+        android:layout_marginTop="@dimen/margin_10"
+        android:background="@drawable/shape_null_white_5"
+        android:gravity="center"
+        android:text="自定义照片多选" />
+    <TextView
+        android:id="@+id/tv_img_8"
+        style="@style/textViewStyle.White.PaddingLeftRight_5"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height_44"
+        android:layout_marginTop="@dimen/margin_10"
+        android:background="@drawable/shape_null_white_5"
+        android:gravity="center"
+        android:text="查看大图" />
 
 </LinearLayout>

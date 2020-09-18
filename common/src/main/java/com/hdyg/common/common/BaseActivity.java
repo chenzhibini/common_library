@@ -13,10 +13,13 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.hdyg.common.R;
 import com.hdyg.common.util.CountDownTimerUtil;
 import com.hdyg.common.util.LangUtil.MultiLanguageUtil;
@@ -25,7 +28,9 @@ import com.hdyg.common.util.SysStyleUtil;
 import com.hdyg.common.util.ToastUtil;
 import com.hdyg.common.util.dialog.JDialog;
 import com.hdyg.common.util.dialog.JDialogType;
+
 import org.greenrobot.eventbus.EventBus;
+
 import butterknife.ButterKnife;
 
 
@@ -174,6 +179,13 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
     }
 
+    protected void setTopBarBg(int resid) {
+        LinearLayout llTop = findViewById(R.id.ll_top_bar_bg);
+        if (llTop != null) {
+            llTop.setBackgroundResource(resid);
+        }
+    }
+
     protected void setTopTitle(Object title) {
         TextView titleView = findViewById(R.id.tvTopTitle);
         if (titleView != null) {
@@ -196,6 +208,12 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         if (v.getId() == R.id.ll_top_left) {
             onBackPressed();
         }
+    }
+
+    protected void setLeftVisible(boolean visible) {
+        ImageView leftImg = findViewById(R.id.iv_top_left);
+        if (leftImg != null)
+            leftImg.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
     }
 
     protected void setLeftImg(int leftIcon) {
@@ -254,7 +272,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     private JDialog dialog;
 
     private void initLoadingView() {
-        if (dialog == null) {
+        if (dialog == null || dialog.dialog == null) {
             dialog = new JDialog.Builder(mContext, JDialogType.PROGRESS).build();
         }
     }
@@ -263,16 +281,18 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     public void showLoading() {
         if (!this.isFinishing()) {
             initLoadingView();
-            if (!dialog.dialog.isShowing()) {
+            if (dialog != null)
                 dialog.show();
-            }
         }
     }
 
     @Override
     public void hideLoading() {
-        if (dialog != null && !this.isFinishing())
+        if (dialog != null && !this.isFinishing()) {
             dialog.dismiss();
+            dialog.dialog = null;
+            dialog = null;
+        }
     }
 
     @Override

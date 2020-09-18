@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.net.Uri;
+
 import java.util.List;
 
 /**
@@ -17,12 +18,12 @@ public class IntentMapUtil {
      * 打开高德地图 （公交出行，起点位置使用地图当前位置）
      * t = 0（驾车）= 1（公交）= 2（步行）= 3（骑行）= 4（火车）= 5（长途客车）
      *
-     * @param mContext   上下文
-     * @param latitude   终点纬度
-     * @param longtitude 终点经度
-     * @param address    终点名称
+     * @param mContext 上下文
+     * @param dlat     终点纬度
+     * @param dlon     终点经度
+     * @param address  终点名称
      */
-    public static void openGaoDeMap(Context mContext, String latitude, String longtitude, String address,String appName) {
+    public static void openGaoDeMap(Context mContext, double dlat, double dlon, String address, String appName) {
         // 是否安装了高德地图
         LogUtils.d("点击了跳转高德地图");
         if (isInstallApk(mContext, "com.autonavi.minimap")) {
@@ -30,8 +31,8 @@ public class IntentMapUtil {
             intent.setPackage("com.autonavi.minimap");
             intent.addCategory("android.intent.category.DEFAULT");
             intent.setData(Uri.parse("androidamap://route?sourceApplication=" + appName
-                    + "&sname=我的位置&dlat=" + latitude
-                    + "&dlon=" + longtitude
+                    + "&sname=我的位置&dlat=" + dlat
+                    + "&dlon=" + dlon
                     + "&dname=" + address
                     + "&dev=0&m=0&t=1"));
             mContext.startActivity(intent);

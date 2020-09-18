@@ -217,14 +217,14 @@ public class WebActivity extends BaseActivity {
                 view.loadUrl("javascript:chaoS('" + desCpt + "','" + failUrl + "')");
             }
 
-            // TODO: 2018/4/23 加载出错时显示
-            @Override
-            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-                super.onReceivedError(view, errorCode, description, failingUrl);
-                view.loadUrl(AppConfig.NET_FAIL_URL);
-                desCpt = description;
-                failUrl = failingUrl;
-            }
+//            // TODO: 2018/4/23 加载出错时显示
+//            @Override
+//            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+//                super.onReceivedError(view, errorCode, description, failingUrl);
+//                view.loadUrl(AppConfig.NET_FAIL_URL);
+//                desCpt = description;
+//                failUrl = failingUrl;
+//            }
         });
         webView.setWebChromeClient(new WebChromeClient() {
 

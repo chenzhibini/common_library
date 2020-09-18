@@ -37,7 +37,7 @@ public class ExpandableItemAdapter extends BaseMultiItemQuickAdapter<MultiItemEn
 
     @Override
     protected void convert(final BaseViewHolder holder, final MultiItemEntity item) {
-        LogUtils.d("类型==>"+holder.getItemViewType());
+//        LogUtils.d("类型==>"+holder.getItemViewType());
         switch (holder.getItemViewType()) {
             case TYPE_LEVEL_0:
                 final IteamOneBean lv0 = (IteamOneBean) item;

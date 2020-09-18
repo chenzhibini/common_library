@@ -82,4 +82,60 @@ ProCityUtil proCityUtil = new ProCityUtil(mContext);
                         })
                         .showCustomBuilder();
 ```
+- 使用拍照工具，再AndroidManifest.xml文件中添加以下代码
+```java
+  <!--图片选择框架权限-->
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.CAMERA" />
+  <activity
+            android:name="cn.finalteam.rxgalleryfinal.ui.activity.MediaActivity"
+            android:screenOrientation="portrait"
+            android:exported="true" />
+  <activity android:name="com.yalantis.ucrop.UCropActivity"
+              android:screenOrientation="portrait" />
+```
+- 使用跳转第三方地图方法
+```java
+//跳转高德地图 传入目的地经纬度和目的地名字
+IntentMapUtil.openGaoDeMap(mContext, 24.48263, 118.148286, "忠仑公园", WordsUtil.getString(R.string.app_name));
+//跳转腾讯地图 传入目的地经纬度和目的地名字
+IntentMapUtil.openTencentMap(mContext, 24.48263, 118.148286, "忠仑公园");
+//跳转百度地图 传入目的地经纬度和目的地名字
+IntentMapUtil.openBaiduMap(mContext, 24.48263, 118.148286, "忠仑公园");
+```
+- 隐私协议窗口使用
+```java
+                //显示文本可自行编辑，但必须包含  《用户服务协议》《隐私政策》
+                new JDialog.Builder(mContext, JDialogType.PROTOCOL)
+                        .setCancelable(false)
+                        .setCanceledOnTouchOutside(false)
+                        .setContent(WordsUtil.getString(R.string.sys_proto))
+                        .setOnClickListener(new JDialogLsitener.OnClickListener() {
+                            @Override
+                            public void onOkClick(String s) {
+                                SPUtils.put(SpMsg.SHOW_PROTOCOL, true);
+                                ToastUtil.show("同意协议");
+                            }
+
+                            @Override
+                            public void onCancelClick() {
+                                ToastUtil.show("不同意协议");
+                            }
+                        })
+                        .setProtocolCallBack(new JDialogLsitener.ProtocolListener() {
+                            @Override
+                            public void userProtocolListener() {
+                                UIHelper.showWeb(mContext, AppConfig.Protocol.USER_PROTOCOL);
+                            }
+
+                            @Override
+                            public void yinsiProtocolListener() {
+                                UIHelper.showWeb(mContext, AppConfig.Protocol.YINSI_PROTOCOL);
+                            }
+                        })
+                        .build()
+                        .show();
+
+```
 

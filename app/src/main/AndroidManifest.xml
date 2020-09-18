@@ -101,6 +101,9 @@
         <activity android:name=".mvp.view.activity.TreeAdapterActivity" />
         <activity android:name=".mvp.view.activity.ExpandableActivity" />
         <activity android:name=".mvp.view.activity.ProcityTestActivity" />
+        <activity android:name=".mvp.view.activity.DialogTestActivity" />
+        <activity android:name=".mvp.view.activity.ImgTestActivity" />
+        <activity android:name=".mvp.view.activity.IntentMapActivity" />
     </application>
 
 </manifest>

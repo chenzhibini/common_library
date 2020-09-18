@@ -1,6 +1,8 @@
 package com.hdyg.common.util.pay;
 
 import android.content.Context;
+
+import com.hdyg.common.bean.WxOpenBean;
 import com.hdyg.common.bean.WxPayBean;
 import com.hdyg.common.bean.WxShareBean;
 import com.hdyg.common.util.LogUtils;
@@ -9,6 +11,7 @@ import com.hdyg.common.util.ThreadUtil;
 import com.hdyg.common.util.ToastUtil;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
+import com.tencent.mm.opensdk.modelbiz.WXLaunchMiniProgram;
 import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
@@ -22,15 +25,17 @@ import java.lang.ref.WeakReference;
 
 /**
  * @author CZB
- * @describe 微信工具
+ * @describe 微信工具 授权/分享/支付/打开小程序
  * @time 2020/4/9 11:42
  */
 public class WxPayBuilder {
 
     private Context mContext;
     private String mAppId;
-    private WxPayBean.DataBean mBean;
+    private WxPayBean mBean;
     private WxShareBean mShareBean;
+    private WxOpenBean mOpenBean;
+    private OpenCallback mOpenCallback;
     private PayCallback mPayCallback;
     private ShareCallback mShareCallback;
     private AuthCallback mAuthCallback;
@@ -46,8 +51,13 @@ public class WxPayBuilder {
         EventBus.getDefault().register(this);
     }
 
-    public WxPayBuilder setPayParam(WxPayBean.DataBean bean) {
+    public WxPayBuilder setPayParam(WxPayBean bean) {
         mBean = bean;
+        return this;
+    }
+
+    public WxPayBuilder setPayCallback(PayCallback callback) {
+        mPayCallback = new WeakReference<>(callback).get();
         return this;
     }
 
@@ -61,13 +71,18 @@ public class WxPayBuilder {
         return this;
     }
 
-    public WxPayBuilder setPayCallback(PayCallback callback) {
-        mPayCallback = new WeakReference<>(callback).get();
+    public WxPayBuilder setShareCallback(ShareCallback callback) {
+        mShareCallback = new WeakReference<>(callback).get();
         return this;
     }
 
-    public WxPayBuilder setShareCallback(ShareCallback callback) {
-        mShareCallback = new WeakReference<>(callback).get();
+    public WxPayBuilder setOpenParam(WxOpenBean bean) {
+        mOpenBean = bean;
+        return this;
+    }
+
+    public WxPayBuilder setOpenCallback(OpenCallback callback) {
+        mOpenCallback = new WeakReference<>(callback).get();
         return this;
     }
 
@@ -82,7 +97,7 @@ public class WxPayBuilder {
     public void auth() {
         SendAuth.Req req = new SendAuth.Req();
         req.scope = "snsapi_userinfo";
-        req.state = "lbs_pay";
+        req.state = "auth_apk";
         IWXAPI wxApi = WxApiWrapper.getInstance().getWxApi();
         if (wxApi == null) {
             ToastUtil.show("授权失败");
@@ -99,14 +114,14 @@ public class WxPayBuilder {
      */
     public void pay() {
         PayReq request = new PayReq();
-        LogUtils.d("发送支付的appid==>" + mBean.getAppid());
-        request.appId = mBean.getAppid();
-        request.partnerId = mBean.getPartnerid();
-        request.prepayId = mBean.getPrepayid();
-        request.packageValue = mBean.getPackageStr();
-        request.nonceStr = mBean.getNoncestr();
-        request.timeStamp = mBean.getTimestamp();
-        request.sign = mBean.getSign();
+        LogUtils.d("发送支付的appid==>" + mBean.appid);
+        request.appId = mBean.appid;
+        request.partnerId = mBean.partnerid;
+        request.prepayId = mBean.prepayid;
+        request.packageValue = mBean.packageStr;
+        request.nonceStr = mBean.noncestr;
+        request.timeStamp = mBean.timestamp;
+        request.sign = mBean.sign;
         IWXAPI wxApi = WxApiWrapper.getInstance().getWxApi();
         if (wxApi == null) {
             ToastUtil.show("支付失败");
@@ -142,6 +157,19 @@ public class WxPayBuilder {
             wxApi.sendReq(req);
         });
 
+    }
+
+    /**
+     * 打开小程序
+     */
+    public void openMiniProgram(){
+        WXLaunchMiniProgram.Req req = new WXLaunchMiniProgram.Req();
+        req.userName = mOpenBean.userName; // 填小程序原始id
+        req.path = mOpenBean.path;                  ////拉起小程序页面的可带参路径，不填默认拉起小程序首页，对于小游戏，可以只传入 query 部分，来实现传参效果，如：传入 "?foo=bar"。
+        req.miniprogramType = mOpenBean.miniprogramType;// 开发版1，体验版2和正式版0
+        //调用api接口，发送数据到微信
+        IWXAPI wxApi = WxApiWrapper.getInstance().getWxApi();
+        wxApi.sendReq(req);
     }
 
     private String buildTransaction(final String type) {
@@ -225,6 +253,15 @@ public class WxPayBuilder {
                         break;
                 }
                 mShareCallback = null;
+            }
+        }
+        if (mOpenCallback != null) {
+            //小程序回退到APP
+            if (resp.getType() == ConstantsAPI.COMMAND_LAUNCH_WX_MINIPROGRAM) {
+                WXLaunchMiniProgram.Resp launchMiniProResp = (WXLaunchMiniProgram.Resp) resp;
+                String extraData =launchMiniProResp.extMsg;
+                mOpenCallback.onSuccess(extraData);
+                mOpenCallback = null;
             }
         }
         mContext = null;
