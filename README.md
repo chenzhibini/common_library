@@ -82,7 +82,8 @@ ProCityUtil proCityUtil = new ProCityUtil(mContext);
                         })
                         .showCustomBuilder();
 ```
-- 使用拍照工具，再AndroidManifest.xml文件中添加以下代码
+#### 拍照工具
+- 权限申请,再AndroidManifest.xml文件中添加以下代码
 ```java
   <!--图片选择框架权限-->
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -95,7 +96,37 @@ ProCityUtil proCityUtil = new ProCityUtil(mContext);
   <activity android:name="com.yalantis.ucrop.UCropActivity"
               android:screenOrientation="portrait" />
 ```
-- 使用跳转第三方地图方法
+- 代码调用
+```java
+//照片单选裁剪
+TakePhotoUtil.getInstance().selectPhotoCropSingle(mContext, obj -> ToastUtil.show("照片路径-->" + obj.toString()));
+//照片多选
+TakePhotoUtil.getInstance().selectPhotoMult(mContext, list -> {
+                    for (int i=0; i<list.size(); i++){
+                        LogUtils.d("图片path---->"+list.get(i).getOriginalPath());
+                    }
+                });
+//拍照并裁剪
+TakePhotoUtil.getInstance().openZKCameraCrop(this,obj -> ToastUtil.show("照片path-->" + obj.toString()));
+//自定义照片多选
+int max = 9;
+TakePhotoUtil.getInstance().sustomPhotoMult(mContext,max,list -> {
+                    for (int i=0; i<list.size(); i++){
+                        LogUtils.d("path---->"+list.get(i).getOriginalPath());
+                    }
+                });
+//查看大图
+TakePhotoUtil.getInstance().selectLargerImage(mContext,paths,0);
+//视频单选
+TakePhotoUtil.getInstance().selectVideoSingle(mContext,obj -> ToastUtil.show("视频路径-->" + obj.toString()));
+//视频多选
+TakePhotoUtil.getInstance().selectVideoMult(mContext,list -> {
+                    for (int i=0; i<list.size(); i++){
+                        LogUtils.d("视频path---->"+list.get(i).getOriginalPath());
+                    }
+                });
+```
+#### 使用跳转第三方地图方法
 ```java
 //跳转高德地图 传入目的地经纬度和目的地名字
 IntentMapUtil.openGaoDeMap(mContext, 24.48263, 118.148286, "忠仑公园", WordsUtil.getString(R.string.app_name));
@@ -104,7 +135,7 @@ IntentMapUtil.openTencentMap(mContext, 24.48263, 118.148286, "忠仑公园");
 //跳转百度地图 传入目的地经纬度和目的地名字
 IntentMapUtil.openBaiduMap(mContext, 24.48263, 118.148286, "忠仑公园");
 ```
-- 隐私协议窗口使用
+#### 隐私协议窗口使用
 ```java
                 //显示文本可自行编辑，但必须包含  《用户服务协议》《隐私政策》
                 new JDialog.Builder(mContext, JDialogType.PROTOCOL)
