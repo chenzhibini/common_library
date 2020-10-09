@@ -59,7 +59,8 @@ public class LoginActivity extends BaseActivity<PLogin> implements CLogin.IVLogi
 
     }
 
-    @OnClick({R.id.tv_time,R.id.tv_cus_text,R.id.tv_tree,R.id.tv_dialog,R.id.tv_img,R.id.tv_map})
+    @OnClick({R.id.tv_time,R.id.tv_cus_text,R.id.tv_tree,R.id.tv_dialog,R.id.tv_img,R.id.tv_map,
+            R.id.tv_rsa})
     public void onClickView(View view) {
         switch (view.getId()) {
             case R.id.tv_time:  //选择器工具
@@ -79,6 +80,9 @@ public class LoginActivity extends BaseActivity<PLogin> implements CLogin.IVLogi
                 break;
             case R.id.tv_map:    //跳转第三方地图(高德、百度、腾讯地图)
                 startActivity(IntentMapActivity.class);
+                break;
+            case R.id.tv_rsa:    //RSA工具
+                startActivity(RSATestActivity.class);
                 break;
         }
     }

@@ -41,6 +41,7 @@ AliPayBuilder builder = new AliPayBuilder(mContext);
 ```
 WxPayBuilder使用：
 ```java
+//微信支付
 WxPayBuilder builder = new WxPayBuilder(mContext, dataBean.getPay_data().getAppid());
         builder.setPayCallback(new PayCallback() {
             @Override
@@ -174,5 +175,56 @@ IntentMapUtil.openBaiduMap(mContext, 24.48263, 118.148286, "忠仑公园");
                         .build()
                         .show();
 
+```
+#### 状态栏工具 设置系统状态栏字体颜色
+```java
+SysStyleUtil.setStatusBarLightMode(this, android.R.color.transparent, false);
+```
+#### 系统分享工具使用
+```java
+// 分享文本
+ShareFileUtils.shareUrl(mContext,path);
+// 分享文件
+ShareFileUtils.shareFile(mContext,path);
+// 分享单图
+ShareFileUtils.shareImage(mContext,path);
+// 分享多图
+ShareFileUtils.shareImage(mContext,paths);
+// 分享到微信好友(单图)
+ShareFileUtils.shareImageToWeChat(mContext,path);
+// 分享到微信好友(多图)
+ShareFileUtils.shareImageToWeChat(mContext,paths);
+// 分享到微信朋友圈(单图)
+ShareFileUtils.shareImageToWeChatFriend(mContext,path);
+// 分享到微信朋友圈(多图)
+ShareFileUtils.shareImageToWeChatFriend(mContext,paths);
+// 分享到QQ好友(单图)
+ShareFileUtils.shareImageToQQ(mContext,path);
+// 分享到QQ好友(多图)
+ShareFileUtils.shareImageToQQ(mContext,paths);
+// 分享到QQ空间(单图)
+ShareFileUtils.shareImageToQZone(mContext,path);
+// 分享到QQ空间(多图)
+ShareFileUtils.shareImageToQZone(mContext,paths);
+// 分享到微博(单图)
+ShareFileUtils.shareImageToWeibo(mContext,path);
+// 分享到微博(多图)
+ShareFileUtils.shareImageToWeibo(mContext,paths);
+```
+#### 时间工具使用 DateUtil.java  具体查看注释
+#### RSA工具使用
+```java
+1、私钥加密
+byte[] aaa = RSA.encryptByPrivateKey(params, RSA.PRI_KEY);
+String encodeStr = Base64Utils.encode(aaa);
+2、公钥解密
+byte[] bbb = RSA.decryptByPublicKey(aaa,RSA.PUB_KEY);
+String s = new String(bbb);
+3、验签
+//签名串
+String sign = RSA.sign(params);
+//验签
+byte[] data = RSA.getParam(params);
+boolean verify = RSA.verify(data,Base64.decode(sign, Base64.DEFAULT));
 ```
 

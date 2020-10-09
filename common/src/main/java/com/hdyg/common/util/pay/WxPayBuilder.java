@@ -2,9 +2,12 @@ package com.hdyg.common.util.pay;
 
 import android.content.Context;
 
+import com.google.gson.Gson;
 import com.hdyg.common.bean.WxOpenBean;
 import com.hdyg.common.bean.WxPayBean;
 import com.hdyg.common.bean.WxShareBean;
+import com.hdyg.common.httpUtil.okhttp.CallBackUtil;
+import com.hdyg.common.httpUtil.okhttp.OkhttpUtil;
 import com.hdyg.common.util.LogUtils;
 import com.hdyg.common.util.StringUtil;
 import com.hdyg.common.util.ThreadUtil;
@@ -21,7 +24,11 @@ import com.tencent.mm.opensdk.openapi.IWXAPI;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+import org.json.JSONObject;
+
 import java.lang.ref.WeakReference;
+
+import okhttp3.Call;
 
 /**
  * @author CZB
@@ -266,6 +273,44 @@ public class WxPayBuilder {
         }
         mContext = null;
         EventBus.getDefault().unregister(this);
+    }
+
+    //获取用户信息
+    private void getUserInfo(String code){
+        //获取授权
+        String mSecret = "";
+        String loginUrl = "https://api.weixin.qq.com/sns/oauth2/access_token?appid="+mAppId+"&secret="+mSecret+"&code="+code+"&grant_type=authorization_code";
+        OkhttpUtil.okHttpGet(loginUrl, new CallBackUtil.CallBackString() {
+            @Override
+            public void onFailure(Call call, Exception e) {
+                LogUtils.e("AccessCode Fail==>"+e.getMessage());
+            }
+
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    String access = jsonObject.getString("access_token");
+                    String openId = jsonObject.getString("openid");
+                    //获取个人信息
+                    String getUserInfo = "https://api.weixin.qq.com/sns/userinfo?access_token=" + access + "&openid=" + openId;
+                    OkhttpUtil.okHttpGet(getUserInfo, new CallBackString() {
+                        @Override
+                        public void onFailure(Call call, Exception e) {
+                            LogUtils.e("UserInfo Fail==>"+e.getMessage());
+                        }
+
+                        @Override
+                        public void onResponse(String response) {
+                            LogUtils.d("UserInfo Success==>"+response);
+                        }
+                    });
+                }catch (Exception e){
+                    LogUtils.e("GetUserInfo Exception==>"+new Gson().toJson(e));
+                }
+
+            }
+        });
     }
 
 
