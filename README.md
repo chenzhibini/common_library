@@ -1,9 +1,9 @@
 # 更新说明
 
-#### 依赖使用说明 版本1.0.0
+#### 依赖使用说明 版本1.0.3
 - gradle安装说明
 ```java
-implementation 'com.github.chenzhibini:common_library:1.0.2'
+implementation 'com.github.chenzhibini:common_library:1.0.3'
 ```
 - 初始化,在application中添加
 ```java
