@@ -2,6 +2,7 @@ package com.hdyg.common.util.rsa;
 
 import android.text.TextUtils;
 import android.util.Base64;
+
 import com.google.gson.Gson;
 import com.hdyg.common.util.LogUtils;
 import com.hdyg.common.util.MD5.MapKeyComparator;
@@ -22,7 +23,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
+
 import javax.crypto.Cipher;
+
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
@@ -37,14 +40,14 @@ public class RSA {
     /**
      * 公钥
      */
-    public static final String PUB_KEY = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDSYuXSOeV8AxL3GV0Z4E5ts+2E\n" +
+    public static String PUB_KEY = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDSYuXSOeV8AxL3GV0Z4E5ts+2E\n" +
             "dVOko3QKeIuJ6ZNdP/TrOUomW0ME+PLh7ei8MnienqEQxFeBBlRQj9ZgHlAtGm0e\n" +
             "ElqhIyCnaCYKD7DDhAeyKubk9NFAP7E9Qq2+D3MHOF+kKiEygULy/BsThHHuhz9O\n" +
             "V15+0ibpE3+nDKTLtwIDAQAB";
     /**
      * 私钥
      */
-    public static final String PRI_KEY = "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBANJi5dI55XwDEvcZ\n" +
+    public static String PRI_KEY = "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBANJi5dI55XwDEvcZ\n" +
             "XRngTm2z7YR1U6SjdAp4i4npk10/9Os5SiZbQwT48uHt6LwyeJ6eoRDEV4EGVFCP\n" +
             "1mAeUC0abR4SWqEjIKdoJgoPsMOEB7Iq5uT00UA/sT1Crb4Pcwc4X6QqITKBQvL8\n" +
             "GxOEce6HP05XXn7SJukTf6cMpMu3AgMBAAECgYEAuv5gGuyOxhzNXIdUss0lqGgG\n" +
@@ -93,6 +96,16 @@ public class RSA {
      * RSA最大解密密文大小
      */
     private static final int MAX_DECRYPT_BLOCK = 128;
+
+    /**
+     * 设置公钥、私钥
+     * @param privateKey 私钥
+     * @param publicKey 公钥
+     */
+    public void setKey(String privateKey, String publicKey) {
+        this.PUB_KEY = publicKey;
+        this.PRI_KEY = privateKey;
+    }
 
     /**
      * <p>
@@ -157,15 +170,15 @@ public class RSA {
      *
      * @param key pkcs#8
      */
-    public static PublicKey getPublicKey(String key){
+    public static PublicKey getPublicKey(String key) {
         try {
             byte[] keyBytes;
             keyBytes = Base64.decode(key, Base64.DEFAULT);
             X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
             KeyFactory keyFactory = KeyFactory.getInstance("RSA");
             return keyFactory.generatePublic(keySpec);
-        }catch (Exception e){
-            LogUtils.e(TAG,"获取公钥异常-----");
+        } catch (Exception e) {
+            LogUtils.e(TAG, "获取公钥异常-----");
             return null;
         }
     }
@@ -182,8 +195,8 @@ public class RSA {
             PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(keyBytes);
             KeyFactory keyFactory = KeyFactory.getInstance("RSA");
             return keyFactory.generatePrivate(keySpec);
-        }catch (Exception e){
-            LogUtils.e(TAG,"获取私钥异常-----");
+        } catch (Exception e) {
+            LogUtils.e(TAG, "获取私钥异常-----");
             return null;
         }
     }
@@ -208,6 +221,7 @@ public class RSA {
             return null;
         }
     }
+
     /**
      * 验签
      *
@@ -308,8 +322,8 @@ public class RSA {
             byte[] decryptedData = out.toByteArray();
             out.close();
             return decryptedData;
-        }catch (Exception e){
-            LogUtils.e(TAG,"解密失败");
+        } catch (Exception e) {
+            LogUtils.e(TAG, "解密失败");
             return null;
         }
 
@@ -360,7 +374,7 @@ public class RSA {
      * 私钥加密
      * </p>
      *
-     * @param params       源数据
+     * @param params     源数据
      * @param privateKey 私钥(BASE64编码)
      * @return byte[]
      */
@@ -392,8 +406,8 @@ public class RSA {
             byte[] encryptedData = out.toByteArray();
             out.close();
             return encryptedData;
-        }catch (Exception e){
-            LogUtils.e(TAG,"RSA异常");
+        } catch (Exception e) {
+            LogUtils.e(TAG, "RSA异常");
             return null;
         }
 
