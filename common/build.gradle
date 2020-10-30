@@ -13,19 +13,6 @@ android {
         consumerProguardFiles 'consumer-rules.pro'
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            //是否开启log打印
-            buildConfigField 'boolean', 'ENABLE_LOG', 'false'
-        }
-        debug {
-            //是否开启log打印
-            buildConfigField 'boolean', 'ENABLE_LOG', 'true'
-        }
-    }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

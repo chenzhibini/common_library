@@ -26,7 +26,7 @@ public class CommonModule {
     /**
      * 子模块和主模块需要共享全局上下文，故需要在app module初始化时传入
      */
-    public static void init(Context appContext) {
+    public static void init(Context appContext,boolean isOpenLog) {
         if (sAppContext == null) {
             sAppContext = appContext.getApplicationContext();
             Utils.init((Application) appContext);
@@ -39,7 +39,7 @@ public class CommonModule {
             ZXingLibrary.initDisplayOpinion(sAppContext);
             // 日志工具实例化
             LogUtils.getBuilder(sAppContext)
-                    .setLogSwitch(BuildConfig.ENABLE_LOG)
+                    .setLogSwitch(isOpenLog)
                     .setLog2FileSwitch(false)
                     .setTag("czb")
                     .create();

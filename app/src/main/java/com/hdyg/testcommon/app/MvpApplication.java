@@ -3,6 +3,8 @@ package com.hdyg.testcommon.app;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import androidx.multidex.MultiDexApplication;
+
+import com.hdyg.testcommon.BuildConfig;
 import com.hdyg.common.common.AppConfig;
 import com.hdyg.common.common.CommonModule;
 import com.hdyg.common.util.LangUtil.MultiLanguageUtil;
@@ -20,7 +22,7 @@ public class MvpApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        CommonModule.init(this);
+        CommonModule.init(this, BuildConfig.ENABLE_LOG);
         //多语言
         languageWork();
         AopArms.init(this);
