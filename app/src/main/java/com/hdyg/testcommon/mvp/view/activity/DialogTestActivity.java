@@ -1,20 +1,17 @@
 package com.hdyg.testcommon.mvp.view.activity;
 
 import android.os.Handler;
-import android.text.InputType;
 import android.view.View;
-
-import com.hdyg.common.common.AppConfig;
 import com.hdyg.common.common.BaseActivity;
 import com.hdyg.common.common.SpMsg;
 import com.hdyg.common.util.SPUtils;
-import com.hdyg.common.util.ThreadUtil;
 import com.hdyg.common.util.ToastUtil;
 import com.hdyg.common.util.WordsUtil;
 import com.hdyg.common.util.dialog.JDialog;
 import com.hdyg.common.util.dialog.JDialogLsitener;
 import com.hdyg.common.util.dialog.JDialogType;
 import com.hdyg.testcommon.R;
+import com.hdyg.testcommon.app.AppConfig;
 
 import butterknife.OnClick;
 
@@ -99,7 +96,6 @@ public class DialogTestActivity extends BaseActivity {
                 new JDialog.Builder(mContext, JDialogType.PROTOCOL)
                         .setCancelable(false)
                         .setCanceledOnTouchOutside(false)
-                        .setContent(WordsUtil.getString(R.string.sys_proto))
                         .setOnClickListener(new JDialogLsitener.OnClickListener() {
                             @Override
                             public void onOkClick(String s) {
@@ -123,6 +119,7 @@ public class DialogTestActivity extends BaseActivity {
                                 UIHelper.showWeb(mContext, AppConfig.Protocol.YINSI_PROTOCOL);
                             }
                         })
+                        .setProtocol(WordsUtil.getString(R.string.start_proto),WordsUtil.getString(R.string.user_proto),WordsUtil.getString(R.string.yinsi_proto),WordsUtil.getString(R.string.end_proto))
                         .build()
                         .show();
                 break;

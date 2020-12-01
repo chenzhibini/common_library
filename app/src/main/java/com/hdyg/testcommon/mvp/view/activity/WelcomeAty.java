@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import com.hdyg.testcommon.R;
-import com.hdyg.common.common.AppConfig;
 import com.hdyg.common.common.AppManager;
 import com.hdyg.common.common.BaseActivity;
 import com.hdyg.common.common.SpMsg;
@@ -17,6 +16,7 @@ import com.hdyg.common.util.WordsUtil;
 import com.hdyg.common.util.dialog.JDialog;
 import com.hdyg.common.util.dialog.JDialogLsitener;
 import com.hdyg.common.util.dialog.JDialogType;
+import com.hdyg.testcommon.app.AppConfig;
 
 import java.util.List;
 import cn.com.superLei.aoparms.annotation.Permission;

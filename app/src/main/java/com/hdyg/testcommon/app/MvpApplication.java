@@ -3,9 +3,7 @@ package com.hdyg.testcommon.app;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import androidx.multidex.MultiDexApplication;
-
 import com.hdyg.testcommon.BuildConfig;
-import com.hdyg.common.common.AppConfig;
 import com.hdyg.common.common.CommonModule;
 import com.hdyg.common.util.LangUtil.MultiLanguageUtil;
 import com.hdyg.common.util.Utils;

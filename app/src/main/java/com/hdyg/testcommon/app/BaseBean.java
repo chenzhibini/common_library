@@ -1,10 +1,11 @@
-package com.hdyg.common.bean;
+package com.hdyg.testcommon.app;
 
 /**
- * Created by Administrator on 2018/3/10.
- * 基类实体类
+ * @author CZB
+ * @describe 基类实体类
+ * @time 2020/12/1 19:14
+ * @param <T> 泛型实体
  */
-
 public class BaseBean<T> {
     private String status;
     private String message;

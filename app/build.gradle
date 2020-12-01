@@ -99,6 +99,8 @@ dependencies {
     implementation rootProject.ext.dependencies["RoundImage"]
     //AOP
     implementation rootProject.ext.dependencies["AOP"]
+    //依赖通用library
+//    implementation 'com.github.chenzhibini:common_library:1.0.5'
     //
     implementation project(path: ':common')
 

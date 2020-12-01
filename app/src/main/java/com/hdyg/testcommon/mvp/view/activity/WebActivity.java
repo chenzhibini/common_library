@@ -25,7 +25,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import com.hdyg.testcommon.R;
-import com.hdyg.common.common.AppConfig;
 import com.hdyg.common.common.AppManager;
 import com.hdyg.common.common.BaseActivity;
 import com.hdyg.common.common.CommonModule;
@@ -36,6 +35,8 @@ import com.hdyg.common.util.TakePhotoUtil;
 import com.hdyg.common.util.dialog.JDialog;
 import com.hdyg.common.util.dialog.JDialogType;
 import com.hdyg.common.widget.MyWebView;
+import com.hdyg.testcommon.app.AppConfig;
+
 import java.io.File;
 import butterknife.BindView;
 import okhttp3.Cookie;

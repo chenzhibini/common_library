@@ -1,16 +1,18 @@
-package com.hdyg.common.httpUtil;
+package com.hdyg.testcommon.app;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+
 import com.google.gson.JsonSyntaxException;
-import com.hdyg.common.bean.BaseBean;
-import com.hdyg.common.common.AppConfig;
 import com.hdyg.common.common.AppManager;
 import com.hdyg.common.common.BaseActivity;
+import com.hdyg.common.httpUtil.ICallback;
+import com.hdyg.common.httpUtil.RxException;
 import com.hdyg.common.util.JsonUtil;
 import com.hdyg.common.util.LogUtils;
 import com.hdyg.common.util.ProgressDialogUtil;
+
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
@@ -18,7 +20,7 @@ import java.lang.reflect.Type;
  * 回调
  *
  * @author CZB
- * @time 2018/7/5 14:55
+ * @time 2020/12/1 14:55
  */
 public abstract class HttpCallback<Result> implements ICallback {
     private ProgressDialogUtil dialogUtil = null;

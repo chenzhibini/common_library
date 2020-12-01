@@ -1,9 +1,9 @@
-package com.hdyg.common.common;
+package com.hdyg.testcommon.app;
 
 /**
  * @author CZB
  * @describe 配置类
- * @time 2020/6/30 19:14
+ * @time 2020/12/1 19:14
  */
 public class AppConfig {
 

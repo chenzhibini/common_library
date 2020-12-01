@@ -1,11 +1,11 @@
 package com.hdyg.testcommon.mvp.presenter;
 
+import com.hdyg.testcommon.app.BaseBean;
+import com.hdyg.testcommon.app.HttpCallback;
 import com.hdyg.testcommon.bean.LoginBean;
 import com.hdyg.testcommon.bean.VersionBean;
 import com.hdyg.testcommon.mvp.contract.CLogin;
-import com.hdyg.common.bean.BaseBean;
 import com.hdyg.common.common.BasePresenter;
-import com.hdyg.common.httpUtil.HttpCallback;
 import java.util.Map;
 
 /**

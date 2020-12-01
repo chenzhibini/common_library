@@ -25,8 +25,8 @@ import android.widget.FrameLayout;
 
 import com.hdyg.common.common.CommonModule;
 import com.hdyg.testcommon.R;
+import com.hdyg.testcommon.app.AppConfig;
 import com.hdyg.testcommon.mvp.view.activity.WebActivity;
-import com.hdyg.common.common.AppConfig;
 import com.hdyg.common.common.AppManager;
 import com.hdyg.common.common.BaseFragment;
 import com.hdyg.common.common.SpMsg;
