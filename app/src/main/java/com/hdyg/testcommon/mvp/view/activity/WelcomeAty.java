@@ -82,7 +82,7 @@ public class WelcomeAty extends BaseActivity {
                             UIHelper.showWeb(mContext, AppConfig.Protocol.YINSI_PROTOCOL);
                         }
                     })
-                    .setContent(WordsUtil.getString(R.string.sys_proto))
+                    .setProtocol(WordsUtil.getString(R.string.start_proto),WordsUtil.getString(R.string.user_proto),WordsUtil.getString(R.string.yinsi_proto),WordsUtil.getString(R.string.end_proto))
                     .build()
                     .show();
         }

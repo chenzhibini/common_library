@@ -144,36 +144,36 @@ IntentMapUtil.openBaiduMap(mContext, 24.48263, 118.148286, "忠仑公园");
 ```
 #### 隐私协议窗口使用
 ```java
-                //显示文本可自行编辑，但必须包含  《用户服务协议》《隐私政策》
-                new JDialog.Builder(mContext, JDialogType.PROTOCOL)
-                        .setCancelable(false)
-                        .setCanceledOnTouchOutside(false)
-                        .setContent(WordsUtil.getString(R.string.sys_proto))
-                        .setOnClickListener(new JDialogLsitener.OnClickListener() {
-                            @Override
-                            public void onOkClick(String s) {
-                                SPUtils.put(SpMsg.SHOW_PROTOCOL, true);
-                                ToastUtil.show("同意协议");
-                            }
+               //显示文本可自行编辑
+               new JDialog.Builder(mContext, JDialogType.PROTOCOL)
+                                   .setCancelable(false)
+                                   .setCanceledOnTouchOutside(false)
+                                   .setOnClickListener(new JDialogLsitener.OnClickListener() {
+                                       @Override
+                                       public void onOkClick(String s) {
+                                           SPUtils.put(SpMsg.SHOW_PROTOCOL, true);
+                                           requestPermission();
+                                       }
 
-                            @Override
-                            public void onCancelClick() {
-                                ToastUtil.show("不同意协议");
-                            }
-                        })
-                        .setProtocolCallBack(new JDialogLsitener.ProtocolListener() {
-                            @Override
-                            public void userProtocolListener() {
-                                UIHelper.showWeb(mContext, AppConfig.Protocol.USER_PROTOCOL);
-                            }
+                                       @Override
+                                       public void onCancelClick() {
+                                           finish();
+                                       }
+                                   })
+                                   .setProtocolCallBack(new JDialogLsitener.ProtocolListener() {
+                                       @Override
+                                       public void userProtocolListener() {
+                                           UIHelper.showWeb(mContext, AppConfig.Protocol.USER_PROTOCOL);
+                                       }
 
-                            @Override
-                            public void yinsiProtocolListener() {
-                                UIHelper.showWeb(mContext, AppConfig.Protocol.YINSI_PROTOCOL);
-                            }
-                        })
-                        .build()
-                        .show();
+                                       @Override
+                                       public void yinsiProtocolListener() {
+                                           UIHelper.showWeb(mContext, AppConfig.Protocol.YINSI_PROTOCOL);
+                                       }
+                                   })
+                                   .setProtocol(WordsUtil.getString(R.string.start_proto),WordsUtil.getString(R.string.user_proto),WordsUtil.getString(R.string.yinsi_proto),WordsUtil.getString(R.string.end_proto))
+                                   .build()
+                                   .show();
 
 ```
 #### 状态栏工具 设置系统状态栏字体颜色

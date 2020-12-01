@@ -69,6 +69,10 @@
     <string name="save_success">保存成功</string>
     <string name="copy_success">复制成功</string>
     <string name="copy_fail">复制失败</string>
+    <string name="start_proto">请你务必谨慎阅读、充分理解\'服务和隐私条款\',包括但不限于：为了向你提供即时通讯，内容分享等服务，我们需要收集你的设备信息，操作日志等个人信息。你可阅读</string>
+    <string name="end_proto">了解详细信息。如你同意，请点击同意“确定”接受我们的服务。</string>
+    <string name="user_proto">《用户服务协议》</string>
+    <string name="yinsi_proto">《隐私政策》</string>
 
 
 </resources>

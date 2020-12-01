@@ -22,13 +22,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AlertDialog;
-
 import com.hdyg.common.R;
 import com.hdyg.common.util.KeyboardUtils;
-import com.hdyg.common.util.SpannableStringUtils;
-import com.hdyg.common.util.WordsUtil;
+import com.hdyg.common.util.SpannableUtil;
 import com.hdyg.common.widget.ProtocolClickableSpan;
 
 import java.util.Objects;
@@ -74,6 +71,11 @@ public class JDialog {
     private boolean canceledOnTouchOutside = true;
     // 是否背景变暗
     private boolean isDarken = true;
+    //协议文本
+    private CharSequence startProtoText;
+    private CharSequence endProtoText;
+    private CharSequence userProtoText;
+    private CharSequence yinsiProtoText;
 
     // 事件
     private JDialogLsitener.OnDismissListener mOnDismissListener;
@@ -115,6 +117,10 @@ public class JDialog {
         this.mProtocolCallback = builder.mProtocolCallback;
         this.hasButton = builder.hasButton;
         this.isClose = builder.isClose;
+        this.startProtoText = builder.startProtoText;
+        this.endProtoText = builder.endProtoText;
+        this.userProtoText = builder.userProtoText;
+        this.yinsiProtoText = builder.yinsiProtoText;
         init();
     }
 
@@ -282,16 +288,12 @@ public class JDialog {
                     case PROTOCOL:    // 隐私协议弹框
                         llCancel.setVisibility(View.VISIBLE);
                         cutOfLine.setVisibility(View.VISIBLE);
-                        int start1 = content.toString().indexOf(WordsUtil.getString(R.string.sys_user_proto));
-                        int start2 = content.toString().indexOf(WordsUtil.getString(R.string.sys_yinsi_proto));
-                        int[] start = {start1, start2};
-                        int[] lenth = {WordsUtil.getString(R.string.sys_user_proto).length(), WordsUtil.getString(R.string.sys_yinsi_proto).length()};
-                        String[] tag = {ProtocolClickableSpan.TAG_PROTOCOL_USER, ProtocolClickableSpan.TAG_PROTOCOL_YINSI};
-                        StringBuilder stringBuffer = new StringBuilder(content);
-                        SpannableStringUtils.setText(mProtocolCallback, context, tvContent, stringBuffer,
-                                SpannableStringUtils.SPAN_TYPE_CLICK,
-                                R.color.colorAccent,
-                                start, lenth, tag);
+                        tvContent.setText(SpannableUtil.getBuilder(startProtoText)
+                                .append(userProtoText).setClickSpan(new ProtocolClickableSpan(mProtocolCallback, context, ProtocolClickableSpan.TAG_PROTOCOL_USER, R.color.colorAccent))
+                                .append("及")
+                                .append(yinsiProtoText).setClickSpan(new ProtocolClickableSpan(mProtocolCallback, context, ProtocolClickableSpan.TAG_PROTOCOL_YINSI, R.color.colorAccent))
+                                .append(endProtoText)
+                                .create());
                         tvContent.setMovementMethod(LinkMovementMethod.getInstance());
                 }
 
@@ -688,6 +690,11 @@ public class JDialog {
         private boolean canceledOnTouchOutside = true;
         // 是否背景变暗
         private boolean isDarken = true;
+        //协议文本
+        private CharSequence startProtoText;
+        private CharSequence endProtoText;
+        private CharSequence userProtoText;
+        private CharSequence yinsiProtoText;
 
         // 事件
         private JDialogLsitener.OnDismissListener mOnDismissListener;
@@ -720,6 +727,14 @@ public class JDialog {
 
         public Builder setTitle(CharSequence title) {
             this.title = title;
+            return this;
+        }
+
+        public Builder setProtocol(CharSequence startProtoText, CharSequence userProtoText, CharSequence yinsiProtoText, CharSequence endProtoText) {
+            this.startProtoText = startProtoText;
+            this.userProtoText = userProtoText;
+            this.yinsiProtoText = yinsiProtoText;
+            this.endProtoText = endProtoText;
             return this;
         }
 
