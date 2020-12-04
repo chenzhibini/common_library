@@ -9,7 +9,7 @@ import com.hdyg.testcommon.adapter.ExpandableItemAdapter;
 import com.hdyg.testcommon.bean.IteamOneBean;
 import com.hdyg.testcommon.bean.IteamThreeBean;
 import com.hdyg.testcommon.bean.IteamTwoBean;
-import com.hdyg.common.common.BaseActivity;
+import com.hdyg.testcommon.mvp.view.base.BaseActivity;
 import com.hdyg.common.util.LogUtils;
 import java.util.ArrayList;
 import java.util.Random;

@@ -2,7 +2,7 @@ package com.hdyg.testcommon.mvp.view.activity;
 
 import android.view.View;
 
-import com.hdyg.common.common.BaseActivity;
+import com.hdyg.testcommon.mvp.view.base.BaseActivity;
 import com.hdyg.common.util.IntentMapUtil;
 import com.hdyg.common.util.WordsUtil;
 import com.hdyg.testcommon.R;

@@ -6,13 +6,12 @@ import android.content.Intent;
 
 import com.google.gson.JsonSyntaxException;
 import com.hdyg.common.common.AppManager;
-import com.hdyg.common.common.BaseActivity;
+import com.hdyg.testcommon.mvp.view.base.BaseActivity;
 import com.hdyg.common.httpUtil.ICallback;
 import com.hdyg.common.httpUtil.RxException;
 import com.hdyg.common.util.JsonUtil;
 import com.hdyg.common.util.LogUtils;
 import com.hdyg.common.util.ProgressDialogUtil;
-
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 

@@ -22,7 +22,7 @@ import com.hdyg.testcommon.mvp.contract.CLogin;
 import com.hdyg.testcommon.mvp.presenter.PLogin;
 import com.hdyg.testcommon.util.versionUtil.AppDownloadManager;
 import com.hdyg.common.common.AppManager;
-import com.hdyg.common.common.BaseActivity;
+import com.hdyg.testcommon.mvp.view.base.BaseActivity;
 import com.hdyg.common.common.SpMsg;
 import com.hdyg.common.util.LangUtil.MultiLanguageType;
 import com.hdyg.common.util.LangUtil.MultiLanguageUtil;

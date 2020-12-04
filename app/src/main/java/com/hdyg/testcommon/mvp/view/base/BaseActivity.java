@@ -1,4 +1,4 @@
-package com.hdyg.common.common;
+package com.hdyg.testcommon.mvp.view.base;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -21,6 +21,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.hdyg.common.R;
+import com.hdyg.common.common.AppManager;
+import com.hdyg.common.common.BasePresenter;
+import com.hdyg.common.common.CommonModule;
+import com.hdyg.common.common.IBaseView;
 import com.hdyg.common.util.CountDownTimerUtil;
 import com.hdyg.common.util.LangUtil.MultiLanguageUtil;
 import com.hdyg.common.util.LogUtils;

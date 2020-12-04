@@ -2,7 +2,6 @@ package com.hdyg.testcommon.mvp.view.activity;
 
 import android.os.Handler;
 import android.view.View;
-import com.hdyg.common.common.BaseActivity;
 import com.hdyg.common.common.SpMsg;
 import com.hdyg.common.util.SPUtils;
 import com.hdyg.common.util.ToastUtil;
@@ -12,6 +11,7 @@ import com.hdyg.common.util.dialog.JDialogLsitener;
 import com.hdyg.common.util.dialog.JDialogType;
 import com.hdyg.testcommon.R;
 import com.hdyg.testcommon.app.AppConfig;
+import com.hdyg.testcommon.mvp.view.base.BaseActivity;
 
 import butterknife.OnClick;
 

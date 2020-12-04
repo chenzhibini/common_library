@@ -1,7 +1,7 @@
 package com.hdyg.testcommon.mvp.view.fragment;
 
 import com.hdyg.testcommon.R;
-import com.hdyg.common.common.BaseFragment;
+import com.hdyg.testcommon.mvp.view.base.BaseFragment;
 
 
 /**

@@ -28,7 +28,7 @@ import com.hdyg.testcommon.R;
 import com.hdyg.testcommon.app.AppConfig;
 import com.hdyg.testcommon.mvp.view.activity.WebActivity;
 import com.hdyg.common.common.AppManager;
-import com.hdyg.common.common.BaseFragment;
+import com.hdyg.testcommon.mvp.view.base.BaseFragment;
 import com.hdyg.common.common.SpMsg;
 import com.hdyg.common.util.JavaScriptinterface;
 import com.hdyg.common.util.LogUtils;

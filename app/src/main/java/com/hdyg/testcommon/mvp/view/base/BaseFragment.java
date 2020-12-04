@@ -1,4 +1,4 @@
-package com.hdyg.common.common;
+package com.hdyg.testcommon.mvp.view.base;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,12 +11,12 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
+import com.hdyg.common.common.BasePresenter;
+import com.hdyg.common.common.IBaseView;
 import com.hdyg.common.util.LogUtils;
 import com.hdyg.common.util.ToastUtil;
 import com.hdyg.common.util.dialog.JDialog;
 import com.hdyg.common.util.dialog.JDialogType;
-
 import butterknife.ButterKnife;
 
 /**

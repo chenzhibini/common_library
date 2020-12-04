@@ -3,7 +3,7 @@ package com.hdyg.testcommon.mvp.view.activity;
 import android.content.Intent;
 import android.view.View;
 import androidx.annotation.Nullable;
-import com.hdyg.common.common.BaseActivity;
+import com.hdyg.testcommon.mvp.view.base.BaseActivity;
 import com.hdyg.common.util.LogUtils;
 import com.hdyg.common.util.SimpleRxGalleryFinal;
 import com.hdyg.common.util.TakePhotoUtil;

@@ -1,7 +1,7 @@
 package com.hdyg.testcommon.mvp.view.activity;
 
 import com.hdyg.testcommon.R;
-import com.hdyg.common.common.BaseActivity;
+import com.hdyg.testcommon.mvp.view.base.BaseActivity;
 import com.hdyg.common.util.WordsUtil;
 import com.hdyg.common.widget.ExpandableTextView;
 

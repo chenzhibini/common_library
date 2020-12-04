@@ -3,7 +3,7 @@ package com.hdyg.testcommon.mvp.view.activity;
 import android.util.Base64;
 import android.view.View;
 import android.widget.TextView;
-import com.hdyg.common.common.BaseActivity;
+import com.hdyg.testcommon.mvp.view.base.BaseActivity;
 import com.hdyg.common.util.ToastUtil;
 import com.hdyg.common.util.rsa.Base64Utils;
 import com.hdyg.common.util.rsa.RSA;

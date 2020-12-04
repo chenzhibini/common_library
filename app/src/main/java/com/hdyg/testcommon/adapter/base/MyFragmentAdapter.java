@@ -4,8 +4,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
-
-import com.hdyg.common.common.BaseFragment;
+import com.hdyg.testcommon.mvp.view.base.BaseFragment;
 
 import java.util.List;
 

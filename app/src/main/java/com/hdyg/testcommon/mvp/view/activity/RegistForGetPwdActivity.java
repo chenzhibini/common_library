@@ -17,7 +17,7 @@ import com.hdyg.testcommon.adapter.AreaCodeAdapter;
 import com.hdyg.testcommon.mvp.contract.CRegist;
 import com.hdyg.testcommon.mvp.presenter.PRegist;
 import com.hdyg.common.common.AppManager;
-import com.hdyg.common.common.BaseActivity;
+import com.hdyg.testcommon.mvp.view.base.BaseActivity;
 import com.hdyg.common.common.SpMsg;
 import com.hdyg.common.util.CountDownTimerUtil;
 import com.hdyg.common.util.PopWindowUtil;
