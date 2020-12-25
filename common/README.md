@@ -10,6 +10,11 @@
  tvContent.setText("测试文本");
 
 2、添加微信、支付宝工具
+需要导入支付宝sdk
+需要在build.gradle添加
+ aspectjx {
+        exclude 'com.alipay'
+    }
 AliPayBuilder使用：
 AliPayBuilder builder = new AliPayBuilder(mContext);
         builder.setParam(orderInfo)

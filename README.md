@@ -1,13 +1,13 @@
 # 更新说明
 
-#### 依赖使用说明 版本1.0.3
+#### 依赖使用说明 版本1.0.8
 - gradle安装说明
 ```java
-implementation 'com.github.chenzhibini:common_library:1.0.3'
+implementation 'com.github.chenzhibini:common_library:1.0.8'
 ```
 - 初始化,在application中添加
 ```java
-CommonModule.init(this);
+CommonModule.init(this,true);
 ```
 
 #### 微信、支付宝工具使用方法
@@ -25,6 +25,11 @@ CommonModule.init(this);
 - 添加微信、支付宝工具
 AliPayBuilder使用：
 ```java
+需要导入支付宝sdk
+需要在build.gradle添加
+ aspectjx {
+        exclude 'com.alipay'
+    }
 AliPayBuilder builder = new AliPayBuilder(mContext);
         builder.setParam(orderInfo)
                 .setPayCallback(new PayCallback() {
