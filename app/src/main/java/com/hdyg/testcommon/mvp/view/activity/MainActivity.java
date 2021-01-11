@@ -2,11 +2,13 @@ package com.hdyg.testcommon.mvp.view.activity;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
+
 import android.view.KeyEvent;
 import com.hdyg.testcommon.BuildConfig;
 import com.hdyg.testcommon.R;
 import com.hdyg.testcommon.adapter.MainMenuAdapter;
-import com.hdyg.testcommon.adapter.base.MyFragmentAdapter;
+import com.hdyg.testcommon.adapter.ViewPager2Adapter;
 import com.hdyg.testcommon.bean.NativeGuideBean;
 import com.hdyg.testcommon.bean.VersionBean;
 import com.hdyg.testcommon.mvp.view.fragment.EmptyFragment;
@@ -17,7 +19,6 @@ import com.hdyg.testcommon.util.versionUtil.AppDownloadManager;
 import com.hdyg.common.common.AppManager;
 import com.hdyg.testcommon.mvp.view.base.BaseActivity;
 import com.hdyg.testcommon.mvp.view.base.BaseFragment;
-import com.hdyg.common.widget.NoPreloadViewPager;
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
@@ -31,7 +32,7 @@ import butterknife.BindView;
 public class MainActivity extends BaseActivity<PMain> implements CMain.IVMain {
 
     @BindView(R.id.view_page)
-    NoPreloadViewPager viewPage;
+    ViewPager2 viewPage;
     @BindView(R.id.rv_bottom)
     RecyclerView rvBottom;
 
@@ -39,7 +40,7 @@ public class MainActivity extends BaseActivity<PMain> implements CMain.IVMain {
     private MainMenuAdapter bottomAdapter;
 
     private List<BaseFragment> pageDatas;
-    private MyFragmentAdapter pageAdapter;
+    private ViewPager2Adapter pageAdapter;
     private long mExitTime;
     private int versionCode;
     private AppDownloadManager mDownLoadManage;
@@ -107,7 +108,8 @@ public class MainActivity extends BaseActivity<PMain> implements CMain.IVMain {
         pageDatas.add(new EmptyFragment());
 //        pageDatas.add(new MineFragment());
 
-        pageAdapter = new MyFragmentAdapter(getSupportFragmentManager(), pageDatas);
+        pageAdapter = new ViewPager2Adapter(this, pageDatas);
+        viewPage.setUserInputEnabled(false);    //禁止滑动
         viewPage.setAdapter(pageAdapter);
     }
 

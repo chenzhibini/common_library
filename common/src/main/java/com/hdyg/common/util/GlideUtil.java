@@ -37,7 +37,7 @@ public class GlideUtil {
             .placeholder(R.mipmap.ic_launcher)
             .error(R.mipmap.ic_launcher)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
-            .skipMemoryCache(true);
+            .skipMemoryCache(false);
 
     /**
      * 加载常规图片
@@ -57,7 +57,7 @@ public class GlideUtil {
      * @param url
      * @param imageView
      */
-    public static void loadImageFit(Context context, String url, ImageView imageView) {
+    public static void loadImageFit(Context context, Object url, ImageView imageView) {
         options.centerCrop();
         Glide.with(context).load(url).apply(options).into(imageView);
     }
