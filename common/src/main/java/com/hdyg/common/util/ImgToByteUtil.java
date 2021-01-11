@@ -1,6 +1,7 @@
 package com.hdyg.common.util;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -81,6 +82,30 @@ public class ImgToByteUtil {
         }
 
         return null;
+    }
+
+    /**
+     * 获取网络图片地址转成bitmap
+     * @param url 网络图片地址
+     * @return bitmap
+     */
+    public static Bitmap getHtmlUrlToBitmap(final String url){
+        URL htmlUrl = null;
+        InputStream inStream = null;
+        try {
+            htmlUrl = new URL(url);
+            URLConnection connection = htmlUrl.openConnection();
+            HttpURLConnection httpConnection = (HttpURLConnection) connection;
+            int responseCode = httpConnection.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                inStream = httpConnection.getInputStream();
+            }
+            byte[] imageBytes = inputStreamToByte(inStream);
+            return BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
 

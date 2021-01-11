@@ -76,6 +76,24 @@
         android:background="@drawable/shape_null_white_5"
         android:gravity="center"
         android:text="RSA工具" />
+    <EditText
+        android:id="@+id/et_address"
+        style="@style/editViewStyle.White"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height_44"
+        android:layout_marginTop="@dimen/margin_10"
+        android:background="@drawable/shape_null_white_5"
+        android:gravity="center"
+        android:hint="请输入房间地址"/>
+    <TextView
+        android:id="@+id/tv_game"
+        style="@style/textViewStyle.White.PaddingLeftRight_5"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height_44"
+        android:layout_marginTop="@dimen/margin_10"
+        android:background="@drawable/shape_null_white_5"
+        android:gravity="center"
+        android:text="跳转王者荣耀" />
 
 
 </LinearLayout>

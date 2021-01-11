@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.hdyg.common.widget.PhotoShowDialog;
 import java.util.List;
@@ -72,12 +73,12 @@ public class TakePhotoUtil {
      * @param mActivity
      * @param onSuccess
      */
-    public void openZKCameraCrop(final Activity mActivity,final OnTakePhotoListener onSuccess){
+    public void openZKCameraCrop(final AppCompatActivity mActivity,final OnTakePhotoListener onSuccess){
         SimpleRxGalleryFinal.get().init(
                 new SimpleRxGalleryFinal.RxGalleryFinalCropListener() {
                     @NonNull
                     @Override
-                    public Activity getSimpleActivity() {
+                    public AppCompatActivity getSimpleActivity() {
                         return mActivity;
                     }
 

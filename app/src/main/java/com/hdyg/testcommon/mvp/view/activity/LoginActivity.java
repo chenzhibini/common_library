@@ -1,19 +1,10 @@
 package com.hdyg.testcommon.mvp.view.activity;
 
 import android.content.Intent;
-
 import androidx.annotation.Nullable;
-
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
-import com.allen.library.SuperTextView;
-import com.hdyg.common.util.dialog.JDialog;
-import com.hdyg.common.util.dialog.JDialogType;
+import com.hdyg.common.util.ShareFileUtils;
 import com.hdyg.testcommon.BuildConfig;
 import com.hdyg.testcommon.R;
 import com.hdyg.testcommon.bean.LoginBean;
@@ -26,12 +17,8 @@ import com.hdyg.testcommon.mvp.view.base.BaseActivity;
 import com.hdyg.common.common.SpMsg;
 import com.hdyg.common.util.LangUtil.MultiLanguageType;
 import com.hdyg.common.util.LangUtil.MultiLanguageUtil;
-import com.hdyg.common.util.PopWindowUtil;
 import com.hdyg.common.util.SPUtils;
-
-import butterknife.BindView;
 import butterknife.OnClick;
-import cn.com.superLei.aoparms.annotation.SingleClick;
 
 /**
  * @author CZB
@@ -42,6 +29,7 @@ public class LoginActivity extends BaseActivity<PLogin> implements CLogin.IVLogi
 
     private AppDownloadManager mDownLoadManage;
     private int versionCode;
+    private EditText etAddress;
 
 
 
@@ -56,11 +44,12 @@ public class LoginActivity extends BaseActivity<PLogin> implements CLogin.IVLogi
         setLeftVisible(false);
         versionCode = BuildConfig.VERSION_CODE;
         mDownLoadManage = new AppDownloadManager(this);
+        etAddress = findViewById(R.id.et_address);
 
     }
 
     @OnClick({R.id.tv_time,R.id.tv_cus_text,R.id.tv_tree,R.id.tv_dialog,R.id.tv_img,R.id.tv_map,
-            R.id.tv_rsa})
+            R.id.tv_rsa,R.id.tv_game})
     public void onClickView(View view) {
         switch (view.getId()) {
             case R.id.tv_time:  //选择器工具
@@ -83,6 +72,16 @@ public class LoginActivity extends BaseActivity<PLogin> implements CLogin.IVLogi
                 break;
             case R.id.tv_rsa:    //RSA工具
                 startActivity(RSATestActivity.class);
+                break;
+            case R.id.tv_game:    //跳转王者荣耀
+
+                String address = etAddress.getText().toString().trim();
+//                ShareFileUtils.shareUrl(mContext,"https://game.weixin.qq.com/cgi-bin/h5/static/gamecenter/gamelauncher.html?isFromWeappEntry=1&ssid=29&appid=wx95a3a4d7c627e07d&message=ShareTeam_1983707871_3272_2302500565_336331268_6915326844899748_5_1_1_1_20011_2_8_1_5_0_0_0_0_0_0&join=1#wechat_redirect");
+//                ShareFileUtils.shareUrl(mContext,"https://game.weixin.qq.com/cgi-bin/h5/static/gamecenter/gamelauncher.html?isFromWeappEntry=1&ssid=29&appid=wx95a3a4d7c627e07d&message=ShareTeam_1983707871_3120_2303497006_336331268_6915326844899748_5_1_1_1_20011_2_8_1_5_0_0_0_0_0_0&join=1#wechat_redirect");
+//                ShareFileUtils.shareUrl(mContext,"https://game.weixin.qq.com/cgi-bin/h5/static/gamecenter/gamelauncher.html?isFromWeappEntry=1&ssid=29&appid=wx95a3a4d7c627e07d&message=ShareTeam_1983707871_3077_2303613379_336331268_6915326844899748_5_1_1_1_20011_2_8_1_5_0_0_0_0_0_0&join=1#wechat_redirect");
+                ShareFileUtils.shareUrl(mContext,address);
+//                Intent intent = new Intent(Intent.ACTION_VIEW);
+//                mContext.startActivity(intent);
                 break;
         }
     }

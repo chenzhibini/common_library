@@ -7,10 +7,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import android.view.KeyEvent;
 import android.view.View;
@@ -24,6 +26,10 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
+
+import com.hdyg.common.util.ImgToByteUtil;
+import com.hdyg.common.util.StringUtil;
+import com.hdyg.common.util.ToastUtil;
 import com.hdyg.testcommon.R;
 import com.hdyg.common.common.AppManager;
 import com.hdyg.testcommon.mvp.view.base.BaseActivity;
@@ -321,7 +327,40 @@ public class WebActivity extends BaseActivity {
             // ======================================================================
 
         });
+        // 长按保存图片
+        webView.setOnLongClickListener(v -> {
+            final WebView.HitTestResult hitTestResult = webView.getHitTestResult();
+            // 如果是图片类型或者是带有图片链接的类型
+            if (hitTestResult.getType() == WebView.HitTestResult.IMAGE_TYPE ||
+                    hitTestResult.getType() == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) {
+                // 弹出保存图片的对话框
+                new AlertDialog.Builder(mContext)
+                        .setItems(new String[]{"保存图片到本地"}, (dialog, which) -> {
+                            String pic = hitTestResult.getExtra();//获取图片
+                            //保存图片到相册
+                            new Thread(() -> saveImage(pic)).start();
+                        })
+                        .show();
+                return true;
+            }
+            return false;//保持长按可以复制文字
+        });
 
+    }
+
+    public void saveImage(String data) {
+        try {
+            Bitmap bitmap = ImgToByteUtil.getHtmlUrlToBitmap(data);
+            if (bitmap != null) {
+                StringUtil.saveImageToGallery(mContext,bitmap,0);
+            } else {
+                runOnUiThread(() -> ToastUtil.show("保存失败"));
+            }
+        } catch (Exception e) {
+            LogUtils.d("保存图片异常--->"+e.getMessage());
+            runOnUiThread(() -> ToastUtil.show("保存失败"));
+            e.printStackTrace();
+        }
     }
 
     //退出到登录页面

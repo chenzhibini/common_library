@@ -16,7 +16,8 @@ import androidx.viewpager.widget.ViewPager;
 import com.github.chrisbanes.photoview.OnPhotoTapListener;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.hdyg.common.R;
-import com.hdyg.common.util.ImageLoadUtil;
+import com.hdyg.common.util.GlideUtil;
+
 import java.util.List;
 
 /**
@@ -101,15 +102,7 @@ public class PhotoShowDialog extends Dialog {
         public Object instantiateItem(ViewGroup container, int position) {
             View view =View.inflate(context, R.layout.sys_photo_item, null);
             PhotoView photoView = view.findViewById(R.id.photo);
-            ImageLoadUtil.imageLoad(mContext,photoLists.get(position),photoView);
-//                RequestOptions options = new RequestOptions()
-//                        .placeholder(R.mipmap.loading)
-//                        .error(R.mipmap.zanwutupian);
-//                Glide.with(context)
-//                        .load(photoLists.get(position))
-//                        .apply(options)
-//                        .transition(new DrawableTransitionOptions().crossFade())
-//                        .into(photoView);
+            GlideUtil.loadImage(mContext,photoLists.get(position),photoView);
 
             photoView.setOnPhotoTapListener(new OnPhotoTapListener() {
                 @Override

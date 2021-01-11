@@ -2,11 +2,8 @@ package com.hdyg.common.common;
 
 import android.app.Application;
 import android.content.Context;
-import com.hdyg.common.BuildConfig;
 import com.hdyg.common.httpUtil.HttpProxy;
 import com.hdyg.common.httpUtil.okhttp.OkhttpProxy;
-import com.hdyg.common.util.ImageLoad.ImageLoadProxy;
-import com.hdyg.common.util.ImageLoad.glide.GlideProxy;
 import com.hdyg.common.util.LogUtils;
 import com.hdyg.common.util.ScreenAdaptationUtil;
 import com.hdyg.common.util.Utils;
@@ -33,8 +30,6 @@ public class CommonModule {
             //屏幕适配
             ScreenAdaptationUtil.setup((Application) appContext);
             ScreenAdaptationUtil.register((Application) appContext, 375, ScreenAdaptationUtil.MATCH_BASE_WIDTH, ScreenAdaptationUtil.MATCH_UNIT_DP);
-            // 图片加载框架示例话
-            ImageLoadProxy.init(new GlideProxy());
             //初始化zxing包
             ZXingLibrary.initDisplayOpinion(sAppContext);
             // 日志工具实例化
