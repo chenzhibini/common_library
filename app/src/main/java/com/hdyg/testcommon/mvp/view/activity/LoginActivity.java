@@ -49,7 +49,7 @@ public class LoginActivity extends BaseActivity<PLogin> implements CLogin.IVLogi
     }
 
     @OnClick({R.id.tv_time,R.id.tv_cus_text,R.id.tv_tree,R.id.tv_dialog,R.id.tv_img,R.id.tv_map,
-            R.id.tv_rsa,R.id.tv_game})
+            R.id.tv_rsa,R.id.tv_game,R.id.tv_mult})
     public void onClickView(View view) {
         switch (view.getId()) {
             case R.id.tv_time:  //选择器工具
@@ -82,6 +82,9 @@ public class LoginActivity extends BaseActivity<PLogin> implements CLogin.IVLogi
                 ShareFileUtils.shareUrl(mContext,address);
 //                Intent intent = new Intent(Intent.ACTION_VIEW);
 //                mContext.startActivity(intent);
+                break;
+            case R.id.tv_mult:    // adapter多布局
+                startActivity(MultActivity.class);
                 break;
         }
     }

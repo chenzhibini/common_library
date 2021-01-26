@@ -105,7 +105,7 @@ public class WelcomeAty extends BaseActivity {
     private void nextDoing() {
         new Handler().postDelayed(() -> {
             if (TextUtils.isEmpty(SPUtils.get(SpMsg.TOKEN, ""))) {
-                UIHelper.showMain(mContext);
+                UIHelper.showLogin(mContext);
             } else {
                 UIHelper.showMain(mContext);
             }

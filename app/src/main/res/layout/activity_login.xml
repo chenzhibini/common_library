@@ -94,6 +94,15 @@
         android:background="@drawable/shape_null_white_5"
         android:gravity="center"
         android:text="跳转王者荣耀" />
+    <TextView
+        android:id="@+id/tv_mult"
+        style="@style/textViewStyle.White.PaddingLeftRight_5"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height_44"
+        android:layout_marginTop="@dimen/margin_10"
+        android:background="@drawable/shape_null_white_5"
+        android:gravity="center"
+        android:text="adapter多布局使用" />
 
 
 </LinearLayout>

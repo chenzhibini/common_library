@@ -39,6 +39,7 @@ public class ProCityUtil {
     private OnTimeSelectedListener timeListener;
     //省市区相关
     private CityPickerView mPicker;
+    private CityConfig.WheelType mWheelType = CityConfig.WheelType.PRO_CITY_DIS;
     private String titleStr = "选择城市", confirStr = "确认", cancleStr = "取消", defaultPro = "福建省", defaultCity = "厦门市", defaultArea = "湖里区";
     private String titleColor = "#585858", confirmColor = "#585858", cancleColor = "#585858", titleBgColor = "#E9E9E9", lineColor = "#03a9f4";
     private int titleSize = 18, confirmSize = 16, cancleSize = 16;
@@ -56,7 +57,6 @@ public class ProCityUtil {
      */
     public ProCityUtil(Context mContext) {
         this.mContext = mContext;
-        init();
     }
 
     /**
@@ -141,7 +141,16 @@ public class ProCityUtil {
     public ProCityUtil setProCityAreaParam(String titleStr, int titleSize, String titleColor, String titleBgColor,
                                            String confirStr, int confirmSize, String confirmColor, String cancleStr,
                                            int cancleSize, String cancleColor, String lineColor, String defaultPro,
-                                           String defaultCity, String defaultArea) {
+                                           String defaultCity, String defaultArea, int level) {
+        if (level == LEVEL_1){
+            this.mWheelType = CityConfig.WheelType.PRO;
+        }
+        if (level == LEVEL_2){
+            this.mWheelType = CityConfig.WheelType.PRO_CITY;
+        }
+        if (level == LEVEL_3){
+            this.mWheelType = CityConfig.WheelType.PRO_CITY_DIS;
+        }
         if (!TextUtils.isEmpty(titleStr)) {
             this.titleStr = titleStr;
         }
@@ -184,6 +193,7 @@ public class ProCityUtil {
         if (!TextUtils.isEmpty(lineColor)) {
             this.lineColor = lineColor;
         }
+        init();
         return this;
     }
 
@@ -262,7 +272,7 @@ public class ProCityUtil {
                 .cancelTextColor(cancleColor)//取消按钮文字颜色
                 .cancelText(cancleStr)//取消按钮文字
                 .cancelTextSize(cancleSize)//取消按钮文字大小
-                .setCityWheelType(CityConfig.WheelType.PRO_CITY_DIS)//显示类，只显示省份一级，显示省市两级还是显示省市区三级
+                .setCityWheelType(mWheelType)//显示类，只显示省份一级，显示省市两级还是显示省市区三级
                 .showBackground(true)//是否显示半透明背景
                 .visibleItemsCount(5)//显示item的数量
                 .province(defaultPro)//默认显示的省份

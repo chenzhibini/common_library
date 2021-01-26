@@ -105,6 +105,7 @@
         <activity android:name=".mvp.view.activity.ImgTestActivity" />
         <activity android:name=".mvp.view.activity.IntentMapActivity" />
         <activity android:name=".mvp.view.activity.RSATestActivity" />
+        <activity android:name=".mvp.view.activity.MultActivity" />
     </application>
 
 </manifest>

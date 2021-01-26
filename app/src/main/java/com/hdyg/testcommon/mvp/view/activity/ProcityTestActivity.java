@@ -1,6 +1,7 @@
 package com.hdyg.testcommon.mvp.view.activity;
 
 import android.view.View;
+
 import com.hdyg.testcommon.mvp.view.base.BaseActivity;
 import com.hdyg.common.util.LogUtils;
 import com.hdyg.common.util.ProCityUtil;
@@ -18,7 +19,7 @@ import butterknife.OnClick;
  */
 public class ProcityTestActivity extends BaseActivity {
 
-    ProCityUtil proCityUtil;
+    //    ProCityUtil proCityUtil;
     private List<String> data1, data2, data3;
 
 
@@ -30,7 +31,7 @@ public class ProcityTestActivity extends BaseActivity {
     @Override
     protected void initView() {
         setTopTitle("选择器展示");
-        proCityUtil = new ProCityUtil(mContext);
+//        proCityUtil = new ProCityUtil(mContext);
         //无关联数据
         data1 = new ArrayList<>();
         data2 = new ArrayList<>();
@@ -60,7 +61,7 @@ public class ProcityTestActivity extends BaseActivity {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_time:
-                proCityUtil
+                new ProCityUtil(mContext)
                         .setTimeType(true, true, true, true, true, true)
                         .setTimeParam(0, 0, null, 0, 0, null, 0, 0, null, 0, 0, 0, true, false)
                         .setTimeListener(date -> {
@@ -69,8 +70,7 @@ public class ProcityTestActivity extends BaseActivity {
                         .showTimePicker();
                 break;
             case R.id.tv_pro:
-                proCityUtil
-                        .setProCityAreaParam(null, 0, null, null, null, 0, null, null, 0, null, null, null, null, null)
+                new ProCityUtil(mContext).setProCityAreaParam(null, 0, null, null, null, 0, null, null, 0, null, null, null, null, null, ProCityUtil.LEVEL_2)
                         .setProCityAreaListener((province, city, district) -> {
                             toastNotifyShort(province.getName() + "," + city.getName() + "," + district.getName());
                         })
@@ -78,7 +78,7 @@ public class ProcityTestActivity extends BaseActivity {
 
                 break;
             case R.id.tv_cus:
-                proCityUtil
+                new ProCityUtil(mContext)
                         .setCustomParam(0, 0, 0, false)
                         .setCustomDatas(ProCityUtil.LEVEL_3, data1, data2, data3)
                         .setCustomListener((options1, options2, options3) -> {
