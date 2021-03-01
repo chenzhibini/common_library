@@ -21,4 +21,7 @@
     <string name="sys_proto">请你务必谨慎阅读、充分理解\'服务和隐私条款\',包括但不限于：为了向你提供即时通讯，内容分享等服务，我们需要收集你的设备信息，操作日志等个人信息。你可阅读《用户服务协议》及《隐私政策》了解详细信息。如你同意，请点击同意“确定”接受我们的服务。</string>
     <string name="sys_user_proto">《用户服务协议》</string>
     <string name="sys_yinsi_proto">《隐私政策》</string>
+
+    <string name="dialog_password_title">请输入交易密码</string>
+    <string name="dialog_password_tip">请输入交易密码，以确认交易</string>
 </resources>

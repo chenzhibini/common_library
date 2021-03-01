@@ -65,6 +65,7 @@ public class DialogTestActivity extends BaseActivity {
             case R.id.tv_2:
                 new JDialog.Builder(mContext, JDialogType.TIP)
                         .setContent("提示提示")
+                        .setOnOkClickListener(() -> toastNotifyShort("点击了确定"))
                         .build()
                         .show();
                 break;

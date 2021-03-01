@@ -8,5 +8,6 @@
     <color name="main_color">#19140B</color>
     <color name="main_line">#C1A969</color>
     <color name="bg_text_press">#FFE4E4E4</color>
+    <color name="gray_bbb">#bbbbbb</color>
 
 </resources>

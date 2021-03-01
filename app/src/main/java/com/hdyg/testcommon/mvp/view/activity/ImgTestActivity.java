@@ -2,7 +2,11 @@ package com.hdyg.testcommon.mvp.view.activity;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.ImageView;
+
 import androidx.annotation.Nullable;
+
+import com.hdyg.common.util.GlideUtil;
 import com.hdyg.testcommon.mvp.view.base.BaseActivity;
 import com.hdyg.common.util.LogUtils;
 import com.hdyg.common.util.SimpleRxGalleryFinal;
@@ -19,6 +23,9 @@ import butterknife.OnClick;
  * @time 2020/9/18 11:45
  */
 public class ImgTestActivity extends BaseActivity {
+
+    ImageView imageView;
+
     @Override
     protected int getLayoutId() {
         return R.layout.img_test;
@@ -27,6 +34,7 @@ public class ImgTestActivity extends BaseActivity {
     @Override
     protected void initView() {
         setTopTitle("照片选择器演示");
+        imageView = findViewById(R.id.iv_image);
     }
 
     @Override
@@ -44,7 +52,11 @@ public class ImgTestActivity extends BaseActivity {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_img_1: //照片单选裁剪
-                TakePhotoUtil.getInstance().selectPhotoCropSingle(mContext, obj -> ToastUtil.show("照片路径-->" + obj.toString()));
+                TakePhotoUtil.getInstance().selectPhotoCropSingle(mContext, obj -> {
+                    ToastUtil.show("照片路径-->" + obj.toString());
+                    LogUtils.d("照片路径-->" + obj.toString());
+                    GlideUtil.loadRoundImage(mContext, obj.toString(),imageView);
+                });
                 break;
             case R.id.tv_img_2: //照片多选
                 paths = new ArrayList<>();
